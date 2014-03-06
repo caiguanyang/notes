@@ -1,0 +1,2934 @@
+From: =?gb2312?B?0tHTySBXaW5kb3dzIEludGVybmV0IEV4cGxvcmVyIDEwILGjtOY=?=
+Subject: Google Java Style
+Date: Thu, 9 Jan 2014 08:20:50 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01CF0D13.B4C1E760"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7601.17609
+
+这是 MIME 格式的多方邮件。
+
+------=_NextPart_000_0000_01CF0D13.B4C1E760
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://google-styleguide.googlecode.com/svn/trunk/javaguide.html
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML lang=3D"en"><HEAD><META content=3D"IE=3D5.0000" =
+http-equiv=3D"X-UA-Compatible">
+
+<META http-equiv=3D"content-type" content=3D"text/html; =
+charset=3DUTF-8">   <LINK=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.css" =
+rel=3D"stylesheet"=20
+type=3D"text/css">  =20
+<SCRIPT =
+src=3D"http://google-code-prettify.googlecode.com/svn/loader/run_prettify=
+.js" type=3D"text/javascript"></SCRIPT>
+   <LINK href=3D"http://www.google.com/favicon.ico" rel=3D"shortcut =
+icon" type=3D"image/x-icon">=20
+  <TITLE>Google Java Style</TITLE>=20
+<META name=3D"GENERATOR" content=3D"MSHTML 10.00.9200.16750"></HEAD>=20
+<BODY>
+<H1>Google Java Style</H1>
+<DIV class=3D"change">Last changed: December 19, 2013</DIV>
+<TABLE border=3D"0">
+  <TBODY>
+  <TR>
+    <TD>
+      <DL><BR>
+        <DT class=3D"toc1"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s1-introduction">1=20
+        Introduction</A> </DT>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s1.1-terminology">1.1=20
+        Terminology notes</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s1.2-guide-notes">1.2=20
+        Guide notes</A> </DD><BR>
+        <DT class=3D"toc1"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2-source-file-basics">2=20
+        Source file basics</A> </DT>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.1-file-name">2.1=20
+        File name</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.2-file-encoding">2.2=20
+        File encoding: UTF-8</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.3-special-characters">2.3=20
+        Special characters</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.3.1-whitespace-characters">2.3.1=20
+        Whitespace characters</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.3.2-special-escape-sequences">2.3.2=20
+        Special escape sequences</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.3.3-non-ascii-characters">2.3.3=20
+        Non-ASCII characters</A> </DD><BR>
+        <DT class=3D"toc1"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3-source-file-structure">3=20
+        Source file structure</A> </DT>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.1-copyright-statement">3.1=20
+        License or copyright information, if present</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.2-package-statement">3.2=20
+        Package statement</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.3-import-statements">3.3=20
+        Import statements</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.3.1-wildcard-imports">3.3.1=20
+        No wildcard imports</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.3.2-import-line-wrapping">3.3.2=20
+        No line-wrapping</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.3.3-import-ordering-and-spacing">3.3.3=20
+        Ordering and spacing</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.4-class-declaration">3.4=20
+        Class declaration</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.4.1-one-top-level-class">3.4.1=20
+        Exactly one top-level class declaration</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.4.2-class-member-ordering">3.4.2=20
+        Class member ordering</A> </DD></DL></TD>
+    <TD>
+      <DL><BR>
+        <DT class=3D"toc1"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4-formatting">4=20
+        Formatting</A> </DT>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.1-braces">4.1=20
+        Braces</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.1.1-braces-always-used">4.1.1=20
+        Braces are used where optional</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.1.2-blocks-k-r-style">4.1.2=20
+        Nonempty blocks: K &amp; R style</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.1.3-braces-empty-blocks">4.1.3=20
+        Empty blocks: may be concise</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.2-block-indentation">4.2=20
+        Block indentation: +2 spaces</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.3-one-statement-per-line">4.3=20
+        One statement per line</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.4-column-limit">4.4=20
+        Column limit: 80 or 100</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.5-line-wrapping">4.5=20
+        Line-wrapping</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.5.1-line-wrapping-where-to-break">4.5.1=20
+        Where to break</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.5.2-line-wrapping-indent">4.5.2=20
+        Indent continuation lines at least +4 spaces</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.6-whitespace">4.6=20
+        Whitespace</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.6.1-vertical-whitespace">4.6.1=20
+        Vertical Whitespace</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.6.2-horizontal-whitespace">4.6.2=20
+        Horizontal whitespace</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.6.3-horizontal-alignment">4.6.3=20
+        Horizontal alignment: never required</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.7-grouping-parentheses">4.7=20
+        Grouping parentheses: recommended</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8-specific-constructs">4.8=20
+        Specific constructs</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.1-enum-classes">4.8.1=20
+        Enum classes</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.2-variable-declarations">4.8.2=20
+        Variable declarations</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.3-arrays">4.8.3=20
+        Arrays</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.4-switch">4.8.4=20
+        Switch statements</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.5-annotations">4.8.5=20
+        Annotations</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.6-comments">4.8.6=20
+        Comments</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.7-modifiers">4.8.7=20
+        Modifiers</A> </DD></DL></TD>
+    <TD>
+      <DL><BR>
+        <DT class=3D"toc1"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5-naming">5=20
+        Naming</A> </DT>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.1-identifier-names">5.1=20
+        Rules common to all identifiers</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2-specific-identifier-names">5.2=20
+        Rules by identifier type</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.1-package-names">5.2.1=20
+        Package names</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.2-class-names">5.2.2=20
+        Class names</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.3-method-names">5.2.3=20
+        Method names</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.4-constant-names">5.2.4=20
+        Constant names</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.5-non-constant-field-names">5.2.5=20
+        Non-constant field names</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.6-parameter-names">5.2.6=20
+        Parameter names</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.7-local-variable-names">5.2.7=20
+        Local variable names</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.8-type-variable-names">5.2.8=20
+        Type variable names</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.3-camel-case">5.3=20
+        Camel case: defined</A> </DD><BR>
+        <DT class=3D"toc1"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s6-programming-practices">6=20
+        Programming Practices</A> </DT>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s6.1-override-annotation">6.1=20
+        @Override: always used</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s6.2-caught-exceptions">6.2=20
+        Caught exceptions: not ignored</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s6.3-static-members">6.3=20
+        Static members: qualified using class</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s6.4-finalizers">6.4=20
+        Finalizers: not used</A> </DD><BR>
+        <DT class=3D"toc1"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7-javadoc">7=20
+        Javadoc</A> </DT>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.1-javadoc-formatting">7.1=20
+        Formatting</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.1.1-javadoc-multi-line">7.1.1=20
+        General form</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.1.2-javadoc-paragraphs">7.1.2=20
+        Paragraphs</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.1.3-javadoc-at-clauses">7.1.3=20
+        At-clauses</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.2-summary-fragment">7.2=20
+        The summary fragment</A> </DD>
+        <DD><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.3-javadoc-where-required">7.3=20
+        Where Javadoc is used</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.3.1-javadoc-exception-self-explanatory">7.3.1=20
+        Exception: self-explanatory methods</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.3.2-javadoc-exception-overrides">7.3.2=20
+        Exception: overrides</A> </DD>
+        <DD class=3D"toc3"><A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.3.3-javadoc-optional">7.3.3=20
+        Optional javadoc</A> </DD></DL></TD></TR></TBODY></TABLE>
+<DIV>
+<DIV id=3D"with-header-links"><A name=3D"s1-introduction"></A>
+<H2><A name=3D"s1-introduction">1 Introduction&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s1-introduction"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H2>
+<P>This document serves as the <STRONG>complete</STRONG> definition of =
+Google's=20
+coding standards for source code in the Java=E2=84=A2 Programming =
+Language. A Java=20
+source file is described as being <EM>in Google Style</EM> if and only =
+if it=20
+adheres to the rules herein.</P>
+<P>Like other programming style guides, the issues covered span not only =
+
+aesthetic issues of formatting, but other types of conventions or coding =
+
+standards as well. However, this document focuses primarily on the=20
+<STRONG>hard-and-fast rules</STRONG> that we follow universally, and =
+avoids=20
+giving <EM>advice</EM> that isn't clearly enforceable (whether by human =
+or=20
+tool). </P><A name=3D"s1.1-terminology"></A>
+<H3><A name=3D"s1.1-terminology">1.1 Terminology notes&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s1.1-terminology"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>In this document, unless otherwise clarified:</P>
+<OL>
+  <LI>The term <EM>class</EM> is used inclusively to mean an "ordinary" =
+class,=20
+  enum class,  interface or annotation type (<CODE=20
+  class=3D"prettyprint lang-java">@interface</CODE>).</LI>
+  <LI>The term <EM>comment</EM> always refers to <EM>implementation</EM> =
+
+  comments. We do not  use the phrase "documentation comments", instead =
+using=20
+  the common term "Javadoc."</LI></OL>
+<P>Other "terminology notes" will appear occasionally throughout the=20
+document.</P><A name=3D"s1.2-guide-notes"></A>
+<H3><A name=3D"s1.2-guide-notes">1.2 Guide notes&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s1.2-guide-notes"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>Example code in this document is <STRONG>non-normative</STRONG>. That =
+is,=20
+while the examples are in Google Style, they may not illustrate the=20
+<EM>only</EM> stylish way to represent the code. Optional formatting =
+choices=20
+made in examples should not be enforced as rules.</P><A =
+name=3D"s2-source-file-basics"></A>
+<H2><A name=3D"s2-source-file-basics">2 Source file basics&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2-source-file-basics"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H2><A=20
+name=3D"s2.1-file-name"></A>
+<H3><A name=3D"s2.1-file-name">2.1 File name&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.1-file-name"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>The source file name consists of the case-sensitive name of the =
+top-level=20
+class it contains, plus the <CODE>.java</CODE> extension (aside from=20
+<CODE>package-info.java</CODE> files).</P><A =
+name=3D"s2.2-file-encoding"></A>
+<H3><A name=3D"s2.2-file-encoding">2.2 File encoding: UTF-8&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.2-file-encoding"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>Source files are encoded in <STRONG>UTF-8</STRONG>.</P><A =
+name=3D"s2.3-special-characters"></A>
+<H3><A name=3D"s2.3-special-characters">2.3 Special characters&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.3-special-characters"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3><A=20
+name=3D"s2.3.1-whitespace-characters"></A>
+<H4><A name=3D"s2.3.1-whitespace-characters">2.3.1 Whitespace =
+characters&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.3.1-whitespace-characters"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Aside from the line terminator sequence, the <STRONG>ASCII horizontal =
+space
+ character</STRONG> (<STRONG>0x20</STRONG>) is the only whitespace =
+character=20
+that appears anywhere in a source file. This implies that:</P>
+<OL>
+  <LI>All other whitespace characters in string and character literals =
+are=20
+  escaped.</LI>
+  <LI>Tab characters are <STRONG>not</STRONG> used for =
+indentation.</LI></OL><A=20
+name=3D"s2.3.2-special-escape-sequences"></A>
+<H4><A name=3D"s2.3.2-special-escape-sequences">2.3.2 Special escape=20
+sequences&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.3.2-special-escape-sequences"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>For any character that has a special escape sequence (<CODE =
+class=3D"prettyprint lang-java">\b</CODE>,=20
+<CODE class=3D"prettyprint lang-java">\t</CODE>, <CODE =
+class=3D"prettyprint lang-java">\n</CODE>,=20
+<CODE class=3D"prettyprint lang-java">\f</CODE>, <CODE =
+class=3D"prettyprint lang-java">\r</CODE>,=20
+<CODE class=3D"prettyprint lang-java">\"</CODE>, <CODE =
+class=3D"prettyprint lang-java">\'</CODE>=20
+and <CODE class=3D"prettyprint lang-java">\\</CODE>), that sequence is =
+used rather=20
+than the corresponding octal (e.g.&nbsp;<CODE class=3D"prettyprint =
+lang-java badcode">\012</CODE>)=20
+or Unicode (e.g.&nbsp;<CODE class=3D"prettyprint lang-java =
+badcode">\u000a</CODE>)=20
+escape.</P><A name=3D"s2.3.3-non-ascii-characters"></A>
+<H4><A name=3D"s2.3.3-non-ascii-characters">2.3.3 Non-ASCII =
+characters&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s2.3.3-non-ascii-characters"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>For the remaining non-ASCII characters, either the actual Unicode =
+character
+ (e.g.&nbsp;<CODE class=3D"prettyprint lang-java">=E2=88=9E</CODE>) or =
+the equivalent=20
+Unicode escape (e.g.&nbsp;<CODE class=3D"prettyprint =
+lang-java">\u221e</CODE>) is=20
+used, depending only on which makes the code <STRONG>easier to read and=20
+understand</STRONG>.</P>
+<P class=3D"tip"><B>Tip:</B>&nbsp;in the Unicode escape case, and =
+occasionally=20
+even when actual Unicode characters are used, an explanatory comment can =
+be very=20
+helpful.</P>
+<P>Examples:</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>Example</TH>
+    <TH>Discussion</TH></TR>
+  <TR>
+    <TD><CODE class=3D"prettyprint lang-java">String unitAbbrev =3D=20
+"=CE=BCs";</CODE></TD>
+    <TD>Best: perfectly clear even without a comment.</TD></TR>
+  <TR>
+    <TD><CODE class=3D"prettyprint lang-java">String unitAbbrev =3D =
+"\u03bcs"; //=20
+      "=CE=BCs"</CODE></TD>
+    <TD>Allowed, but there's no reason to do this.</TD></TR>
+  <TR>
+    <TD><CODE class=3D"prettyprint lang-java">String unitAbbrev =3D =
+"\u03bcs";    =20
+       // Greek letter mu, "s"</CODE></TD>
+    <TD>Allowed, but awkward and prone to mistakes.</TD></TR>
+  <TR>
+    <TD><CODE class=3D"prettyprint lang-java badcode">String unitAbbrev =
+=3D=20
+      "\u03bcs";</CODE></TD>
+    <TD>Poor: the reader has no idea what this is.</TD></TR>
+  <TR>
+    <TD><CODE class=3D"prettyprint lang-java">return '\ufeff' + content; =
+     =20
+      // byte order mark</CODE></TD>
+    <TD>Good: use escapes for non-printable characters, and comment if=20
+      necessary.</TD></TR></TBODY></TABLE>
+<P class=3D"tip"><B>Tip:</B>&nbsp; Never make your code less readable =
+simply out=20
+of fear that some programs might not handle non-ASCII characters =
+properly. If=20
+that should happen, those programs are <STRONG>broken</STRONG> and they =
+must be=20
+<STRONG>fixed</STRONG>.</P><A name=3D"filestructure"><A =
+name=3D"s3-source-file-structure">=20
+    </A>
+<H2><A name=3D"s3-source-file-structure">3 Source file structure&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3-source-file-structure"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H2>
+<DIV>
+<P>A source file consists of, <STRONG>in order</STRONG>:</P>
+<OL>
+  <LI>License or copyright information, if present</LI>
+  <LI>Package statement</LI>
+  <LI>Import statements</LI>
+  <LI>Exactly one top-level class</LI></OL></DIV>
+<P><STRONG>Exactly one blank line</STRONG> separates each section that =
+is=20
+present.</P><A name=3D"s3.1-copyright-statement"></A>
+<H3><A name=3D"s3.1-copyright-statement">3.1 License or copyright =
+information, if=20
+present&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.1-copyright-statement"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>If license or copyright information belongs in a file, it belongs =
+here.</P><A=20
+name=3D"s3.2-package-statement"></A>
+<H3><A name=3D"s3.2-package-statement">3.2 Package statement&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.2-package-statement"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>The package statement is <STRONG>not line-wrapped</STRONG>. The =
+column limit=20
+(Section 4.4, <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.4-column-limit">Column=20
+limit: 80 or 100</A>) does not apply to package statements.</P><A=20
+name=3D"imports"><A name=3D"s3.3-import-statements">     </A>
+<H3><A name=3D"s3.3-import-statements">3.3 Import statements&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.3-import-statements"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3><A=20
+name=3D"s3.3.1-wildcard-imports"></A>
+<H4><A name=3D"s3.3.1-wildcard-imports">3.3.1 No wildcard =
+imports&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.3.1-wildcard-imports"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P><STRONG>Wildcard imports</STRONG>, static or otherwise, <STRONG>are =
+not=20
+used</STRONG>.</P><A name=3D"s3.3.2-import-line-wrapping"></A>
+<H4><A name=3D"s3.3.2-import-line-wrapping">3.3.2 No =
+line-wrapping&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.3.2-import-line-wrapping"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Import statements are <STRONG>not line-wrapped</STRONG>. The column =
+limit=20
+(Section 4.4, <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.4-column-limit">Column=20
+limit: 80 or 100</A>) does not apply to import statements.</P><A =
+name=3D"s3.3.3-import-ordering-and-spacing"></A>
+<H4><A name=3D"s3.3.3-import-ordering-and-spacing">3.3.3 Ordering and=20
+spacing&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.3.3-import-ordering-and-spacing"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Import statements are divided into the following groups, in this =
+order, with=20
+each group separated by a single blank line:</P>
+<OL>
+  <LI>All static imports in a single group</LI>
+  <LI><CODE>com.google</CODE> imports  (only if this source file is in =
+the=20
+  <CODE>com.google</CODE> package  space)</LI>
+  <LI>Third-party imports, one group per top-level package, in ASCII =
+sort order =20
+=20
+  <UL>
+    <LI>for example: <CODE>android</CODE>, <CODE>com</CODE>, =
+<CODE>junit</CODE>,=20
+    <CODE>org</CODE>,     <CODE>sun</CODE></LI></UL></LI>
+  <LI><CODE>java</CODE> imports</LI>
+  <LI><CODE>javax</CODE> imports</LI></OL>
+<P>Within a group there are no blank lines, and the imported names =
+appear in=20
+ASCII sort order. (<STRONG>Note:</STRONG> this is not the same as the =
+import=20
+<EM>statements</EM> being in ASCII sort order; the presence of =
+semicolons warps=20
+the result.)</P><A name=3D"s3.4-class-declaration"></A>
+<H3><A name=3D"s3.4-class-declaration">3.4 Class declaration&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.4-class-declaration"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3><A=20
+name=3D"oneclassperfile"><A name=3D"s3.4.1-one-top-level-class">     =
+</A>
+<H4><A name=3D"s3.4.1-one-top-level-class">3.4.1 Exactly one top-level =
+class=20
+declaration&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.4.1-one-top-level-class"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Each top-level class resides in a source file of its own.</P>
+<P class=3D"exception"><B>Exception:</B>&nbsp; of course, no such class =
+appears in=20
+<CODE>package-info.java</CODE> files.</P><A=20
+name=3D"s3.4.2-class-member-ordering"></A>
+<H4><A name=3D"s3.4.2-class-member-ordering">3.4.2 Class member =
+ordering&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.4.2-class-member-ordering"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>The ordering of the members of a class can have a great effect on=20
+learnability, but there is no single correct recipe for how to do it. =
+Different=20
+classes may order their members differently.</P>
+<P>What is important is that each class order its members in=20
+<STRONG><EM>some</EM> logical order</STRONG>, which its maintainer could =
+explain=20
+if asked. For example, new methods are not just habitually added to the =
+end of=20
+the class, as that would yield "chronological by date added" ordering, =
+which is=20
+not a logical ordering.</P><A name=3D"overloads"><A =
+name=3D"s3.4.2.1-overloads-never-split">=20
+    </A>
+<H5><A name=3D"s3.4.2.1-overloads-never-split">3.4.2.1 Overloads: never=20
+split&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.4.2.1-overloads-never-split"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H5>
+<P>When a class has multiple constructors, or multiple methods with the =
+same=20
+name, these appear sequentially, with no intervening members.</P><A =
+name=3D"s4-formatting"></A>
+<H2><A name=3D"s4-formatting">4 Formatting&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4-formatting"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H2>
+<P class=3D"terminology"><B>Terminology Note:</B>&nbsp;<EM>block-like=20
+construct</EM> refers to the body of a class, method or constructor. =
+Note that,=20
+by Section 4.8.3.1 on <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.3.1-array-initializers">array=20
+initializers</A>, any array initializer <EM>may</EM> optionally be =
+treated as if=20
+it were a block-like construct.</P><A name=3D"braces"><A =
+name=3D"s4.1-braces">    =20
+</A>
+<H3><A name=3D"s4.1-braces">4.1 Braces&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.1-braces"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3><A=20
+name=3D"s4.1.1-braces-always-used"></A>
+<H4><A name=3D"s4.1.1-braces-always-used">4.1.1 Braces are used where=20
+optional&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.1.1-braces-always-used"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Braces are used with <CODE class=3D"prettyprint lang-java">if</CODE>, =
+<CODE=20
+class=3D"prettyprint lang-java">else</CODE>, <CODE=20
+class=3D"prettyprint lang-java">for</CODE>, <CODE=20
+class=3D"prettyprint lang-java">do</CODE> and <CODE=20
+class=3D"prettyprint lang-java">while</CODE> statements, even when the =
+body is=20
+empty or contains only a single statement.</P><A=20
+name=3D"s4.1.2-blocks-k-r-style"></A>
+<H4><A name=3D"s4.1.2-blocks-k-r-style">4.1.2 Nonempty blocks: K &amp; R =
+
+style&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.1.2-blocks-k-r-style"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Braces follow the Kernighan and Ritchie style ("<A =
+href=3D"http://www.codinghorror.com/blog/2012/07/new-programming-jargon.h=
+tml">Egyptian=20
+brackets</A>") for <EM>nonempty</EM> blocks and block-like =
+constructs:</P>
+<UL>
+  <LI>No line break before the opening brace.</LI>
+  <LI>Line break after the opening brace.</LI>
+  <LI>Line break before the closing brace.</LI>
+  <LI>Line break after the closing brace <EM>if</EM> that brace =
+terminates a=20
+  statement or the body  of a method, constructor or <EM>named</EM> =
+class. For=20
+  example, there is <EM>no</EM> line break  after the brace if it is =
+followed by=20
+  <CODE class=3D"prettyprint lang-java">else</CODE> or a  =
+comma.</LI></UL>
+<P>Example:</P>
+<PRE class=3D"prettyprint lang-java">return new MyClass() {=0A=
+  @Override public void method() {=0A=
+    if (condition()) {=0A=
+      try {=0A=
+        something();=0A=
+      } catch (ProblemException e) {=0A=
+        recover();=0A=
+      }=0A=
+    }=0A=
+  }=0A=
+};=0A=
+</PRE>
+<P>A few exceptions for enum classes are given in Section 4.8.1, <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.1-enum-classes">Enum=20
+classes</A>.</P><A name=3D"emptyblocks"><A =
+name=3D"s4.1.3-braces-empty-blocks">    =20
+</A>
+<H4><A name=3D"s4.1.3-braces-empty-blocks">4.1.3 Empty blocks: may be=20
+concise&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.1.3-braces-empty-blocks"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>An empty block or block-like construct <EM>may</EM> be closed =
+immediately=20
+after it is opened, with no characters or line break in between (<CODE =
+class=3D"prettyprint lang-java">{}</CODE>),=20
+<STRONG>unless</STRONG> it is part of a <EM>multi-block statement</EM> =
+(one that=20
+directly contains multiple blocks: <CODE=20
+class=3D"prettyprint lang-java">if/else-if/else</CODE> or <CODE =
+class=3D"prettyprint lang-java">try/catch/finally</CODE>).</P>
+<P>Example:</P>
+<PRE class=3D"prettyprint lang-java">  void doNothing() {}=0A=
+</PRE><A name=3D"s4.2-block-indentation"></A>
+<H3><A name=3D"s4.2-block-indentation">4.2 Block indentation: +2 =
+spaces&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.2-block-indentation"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>Each time a new block or block-like construct is opened, the indent =
+increases=20
+by two spaces. When the block ends, the indent returns to the previous =
+indent=20
+level. The indent level applies to both code and comments throughout the =
+block.=20
+(See the example in Section 4.1.2, <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.1.2-blocks-k-r-style">Nonempty=20
+blocks: K &amp; R Style</A>.)</P><A =
+name=3D"s4.3-one-statement-per-line"></A>
+<H3><A name=3D"s4.3-one-statement-per-line">4.3 One statement per =
+line&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.3-one-statement-per-line"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>Each statement is followed by a line-break.</P><A =
+name=3D"columnlimit"><A name=3D"s4.4-column-limit">=20
+    </A>
+<H3><A name=3D"s4.4-column-limit">4.4 Column limit: 80 or 100&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.4-column-limit"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>  Projects are free to choose a column limit of either 80 or 100 =
+characters.
+ Except as noted below, any line that would exceed this limit must be=20
+line-wrapped, as explained in Section 4.5, <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.5-line-wrapping">Line-wrapping</A>.=20
+</P>
+<P><STRONG>Exceptions:</STRONG></P>
+<OL>
+  <LI>Lines where obeying the column limit is not possible (for example, =
+a long=20
+  URL in Javadoc,  or a long JSNI method reference).</LI>
+  <LI><CODE class=3D"prettyprint lang-java">package</CODE> and   <CODE =
+class=3D"prettyprint lang-java">import</CODE>=20
+  statements (see Sections  3.2 <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.2-package-statement">Package=20
+  statement</A> and  3.3 <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.3-import-statements">Import=20
+  statements</A>).</LI>
+  <LI>Command lines in a comment that may be cut-and-pasted into a=20
+shell.</LI></OL><A name=3D"s4.5-line-wrapping"></A>
+<H3><A name=3D"s4.5-line-wrapping">4.5 Line-wrapping&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.5-line-wrapping"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P class=3D"terminology"><B>Terminology Note:</B>&nbsp;When code that =
+might=20
+otherwise legally occupy a single line is divided into multiple lines, =
+typically=20
+to avoid overflowing the column limit, this activity is called=20
+<EM>line-wrapping</EM>.</P>
+<P>There is no comprehensive, deterministic formula showing =
+<EM>exactly</EM> how=20
+to line-wrap in every situation. Very often there are several valid ways =
+to=20
+line-wrap the same piece of code.</P>
+<P class=3D"tip"><B>Tip:</B>&nbsp;extracting a method or local variable =
+may solve=20
+the problem without the need to line-wrap.</P><A =
+name=3D"s4.5.1-line-wrapping-where-to-break"></A>
+<H4><A name=3D"s4.5.1-line-wrapping-where-to-break">4.5.1 Where to =
+break&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.5.1-line-wrapping-where-to-break"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>The prime directive of line-wrapping is: prefer to break at a =
+<STRONG>higher=20
+syntactic level</STRONG>. Also:</P>
+<OL>
+  <LI>When a line is broken at a <EM>non-assignment</EM> operator the =
+break=20
+  comes <EM>before</EM>  the symbol. (Note that this is not the same =
+practice=20
+  used in Google style for other languages,  such as C++ and =
+JavaScript.)    =20
+  <UL>
+    <LI>This also applies to the following "operator-like" symbols: the =
+dot=20
+    separator      (<CODE class=3D"prettyprint lang-java">.</CODE>), the =
+ampersand=20
+    in type bounds      (<CODE class=3D"prettyprint lang-java">&lt;T =
+extends Foo=20
+    &amp; Bar&gt;</CODE>), and the pipe in      catch blocks      (<CODE =
+class=3D"prettyprint lang-java">catch=20
+    (FooException | BarException e)</CODE>).</LI></UL></LI>
+  <LI>When a line is broken at an <EM>assignment</EM> operator the break =
+
+  typically comes   <EM>after</EM> the symbol, but either way is =
+acceptable.    =20
+  <UL>
+    <LI>This also applies to the "assignment-operator-like" colon in an =
+enhanced=20
+          <CODE class=3D"prettyprint lang-java">for</CODE> ("foreach")=20
+    statement.</LI></UL></LI>
+  <LI>A method or constructor name stays attached to the open =
+parenthesis =20
+  (<CODE class=3D"prettyprint lang-java">(</CODE>) that follows it.</LI>
+  <LI>A comma (<CODE class=3D"prettyprint lang-java">,</CODE>) stays =
+attached to=20
+  the token that  precedes it.</LI></OL><A name=3D"indentation"><A =
+name=3D"s4.5.2-line-wrapping-indent">=20
+    </A>
+<H4><A name=3D"s4.5.2-line-wrapping-indent">4.5.2 Indent continuation =
+lines at=20
+least +4 spaces&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.5.2-line-wrapping-indent"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>When line-wrapping, each line after the first (each <EM>continuation=20
+line</EM>) is indented at least +4 from the original line.</P>
+<P>When there are multiple continuation lines, indentation may be varied =
+beyond=20
++4 as desired. In general, two continuation lines use the same =
+indentation level=20
+if and only if they begin with syntactically parallel elements.</P>
+<P>Section 4.6.3 on <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.6.3-horizontal-alignment">Horizontal=20
+alignment</A> addresses the discouraged practice of using a variable =
+number of=20
+spaces to align certain tokens with previous lines.</P><A=20
+name=3D"s4.6-whitespace"></A>
+<H3><A name=3D"s4.6-whitespace">4.6 Whitespace&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.6-whitespace"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3><A=20
+name=3D"s4.6.1-vertical-whitespace"></A>
+<H4><A name=3D"s4.6.1-vertical-whitespace">4.6.1 Vertical =
+Whitespace&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.6.1-vertical-whitespace"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>A single blank line appears:</P>
+<OL>
+  <LI><EM>Between</EM> consecutive members (or initializers) of a class: =
+fields,=20
+  constructors,  methods, nested classes, static initializers, instance=20
+  initializers.  =20
+  <UL>
+    <LI><SPAN class=3D"exception"><B>Exception:</B>&nbsp;a blank line =
+between two=20
+    consecutive fields (having no other code    between them) is =
+optional. Such=20
+    blank lines are used as needed to create <EM>logical    =
+groupings</EM> of=20
+    fields.</SPAN></LI></UL></LI>
+  <LI>Within method bodies, as needed to create <EM>logical =
+groupings</EM> of=20
+  statements.</LI>
+  <LI><EM>Optionally</EM> before the first member or after the last =
+member of=20
+  the class (neither  encouraged nor discouraged).</LI>
+  <LI>As required by other sections of this document (such as Section =
+3.3,   <A=20
+  =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s3.3-import-statements">Import=20
+  statements</A>).</LI></OL>
+<P><EM>Multiple</EM> consecutive blank lines are permitted, but never =
+required=20
+(or encouraged).</P><A name=3D"s4.6.2-horizontal-whitespace"></A>
+<H4><A name=3D"s4.6.2-horizontal-whitespace">4.6.2 Horizontal =
+whitespace&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.6.2-horizontal-whitespace"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Beyond where required by the language or other style rules, and apart =
+from=20
+literals, comments and Javadoc, a single ASCII space also appears in the =
+
+following places <STRONG>only</STRONG>.</P>
+<OL>
+  <LI>Separating any reserved word, such as   <CODE class=3D"prettyprint =
+lang-java">if</CODE>,=20
+    <CODE class=3D"prettyprint lang-java">for</CODE> or   <CODE =
+class=3D"prettyprint lang-java">catch</CODE>,=20
+  from an open parenthesis  (<CODE class=3D"prettyprint =
+lang-java">(</CODE>)  that=20
+  follows it on that line</LI>
+  <LI>Separating any reserved word, such as   <CODE class=3D"prettyprint =
+lang-java">else</CODE>=20
+  or   <CODE class=3D"prettyprint lang-java">catch</CODE>, from a =
+closing curly=20
+  brace  (<CODE class=3D"prettyprint lang-java">}</CODE>) that precedes =
+it on that=20
+  line</LI>
+  <LI>Before any open curly brace  (<CODE=20
+  class=3D"prettyprint lang-java">{</CODE>), with two exceptions:  =20
+  <UL>
+    <LI><CODE class=3D"prettyprint lang-java">@SomeAnnotation({a, =
+b})</CODE> (no=20
+    space is used)</LI>
+    <LI><CODE class=3D"prettyprint lang-java">String[][] x =3D =
+{{"foo"}};</CODE> (no=20
+    space is required    between <CODE class=3D"prettyprint =
+lang-java">{{</CODE>,=20
+    by item 8 below)</LI></UL></LI>
+  <LI>On both sides of any binary or ternary operator. This also applies =
+to the=20
+  following  "operator-like" symbols:  =20
+  <UL>
+    <LI>the ampersand in a conjunctive type bound:     <CODE =
+class=3D"prettyprint lang-java">&lt;T=20
+    extends Foo &amp; Bar&gt;</CODE></LI>
+    <LI>the pipe for a catch block that handles multiple exceptions:     =
+<CODE=20
+    class=3D"prettyprint lang-java">catch (FooException | BarException=20
+    e)</CODE></LI>
+    <LI>the colon (<CODE class=3D"prettyprint lang-java">:</CODE>) in an =
+enhanced =20
+       <CODE class=3D"prettyprint lang-java">for</CODE> ("foreach")=20
+  statement</LI></UL></LI>
+  <LI>After <CODE class=3D"prettyprint lang-java">,:;</CODE> or the =
+closing=20
+  parenthesis  (<CODE class=3D"prettyprint lang-java">)</CODE>) of a =
+cast</LI>
+  <LI>On both sides of the double slash (<CODE=20
+  class=3D"prettyprint lang-java">//</CODE>) that  begins an end-of-line =
+comment.=20
+  Here, multiple spaces are allowed, but not required.</LI>
+  <LI>Between the type and variable of a declaration:   <CODE =
+class=3D"prettyprint lang-java">List&lt;String&gt;=20
+  list</CODE></LI>
+  <LI><EM>Optional</EM> just inside both braces of an array initializer  =
+=20
+  <UL>
+    <LI><CODE class=3D"prettyprint lang-java">new int[] {5, 6}</CODE> =
+and    =20
+    <CODE class=3D"prettyprint lang-java">new int[] { 5, 6 }</CODE> are =
+both=20
+    valid</LI></UL></LI></OL>
+<P class=3D"note"><B>Note:</B>&nbsp;this rule never requires or forbids =
+additional=20
+space at the start or end of a line, only <EM>interior</EM> space.</P><A =
+name=3D"s4.6.3-horizontal-alignment"></A>
+<H4><A name=3D"s4.6.3-horizontal-alignment">4.6.3 Horizontal alignment: =
+never=20
+required&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.6.3-horizontal-alignment"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P class=3D"terminology"><B>Terminology Note:</B>&nbsp;Horizontal =
+alignment is the=20
+practice of adding a variable number of additional spaces in your code =
+with the=20
+goal of making certain tokens appear directly below certain other tokens =
+on=20
+previous lines.</P>
+<P>This practice is permitted, but is <STRONG>never required</STRONG> by =
+Google=20
+Style. It is not even required to <EM>maintain</EM> horizontal alignment =
+in=20
+places where it was already used.</P>
+<P>Here is an example without alignment, then using alignment:</P>
+<PRE class=3D"prettyprint lang-java">private int x; // this is fine=0A=
+private Color color; // this too=0A=
+=0A=
+private int   x;      // permitted, but future edits=0A=
+private Color color;  // may leave it unaligned=0A=
+</PRE>
+<P class=3D"tip"><B>Tip:</B>&nbsp;Alignment can aid readability, but it =
+creates=20
+problems for future maintenance. Consider a future change that needs to =
+touch=20
+just one line. This change may leave the formerly-pleasing formatting =
+mangled,=20
+and that is <STRONG>allowed</STRONG>. More often it prompts the coder =
+(perhaps=20
+you) to adjust whitespace on nearby lines as well, possibly triggering a
+ cascading series of reformattings. That one-line change now has a =
+"blast=20
+radius." This can at worst result in pointless busywork, but at best it =
+still=20
+corrupts version history information, slows down reviewers and =
+exacerbates merge=20
+conflicts.</P><A name=3D"parentheses"><A =
+name=3D"s4.7-grouping-parentheses">    =20
+</A>
+<H3><A name=3D"s4.7-grouping-parentheses">4.7 Grouping parentheses:=20
+recommended&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.7-grouping-parentheses"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>Optional grouping parentheses are omitted only when author and =
+reviewer agree=20
+that there is no reasonable chance the code will be misinterpreted =
+without them,=20
+nor would they have made the code easier to read. It is <EM>not</EM> =
+reasonable=20
+to assume that every reader has the entire Java operator precedence =
+table=20
+memorized.</P><A name=3D"s4.8-specific-constructs"></A>
+<H3><A name=3D"s4.8-specific-constructs">4.8 Specific constructs&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8-specific-constructs"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3><A=20
+name=3D"s4.8.1-enum-classes"></A>
+<H4><A name=3D"s4.8.1-enum-classes">4.8.1 Enum classes&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.1-enum-classes"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>After each comma that follows an enum constant, a line-break is =
+optional.</P>
+<P>An enum class with no methods and no documentation on its constants =
+may=20
+optionally be formatted as if it were an array initializer:</P>
+<PRE class=3D"prettyprint lang-java">private enum Suit { CLUBS, HEARTS, =
+SPADES, DIAMONDS }=0A=
+</PRE>
+<P>Since enum classes <EM>are classes</EM>, all other rules for =
+formatting=20
+classes apply.</P><A name=3D"localvariables"><A =
+name=3D"s4.8.2-variable-declarations">=20
+    </A>
+<H4><A name=3D"s4.8.2-variable-declarations">4.8.2 Variable =
+declarations&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.2-variable-declarations"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4><A=20
+name=3D"s4.8.2.1-variables-per-declaration"></A>
+<H5><A name=3D"s4.8.2.1-variables-per-declaration">4.8.2.1 One variable =
+per=20
+declaration&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.2.1-variables-per-declaration"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H5>
+<P>Combined declarations such as <CODE class=3D"prettyprint lang-java =
+badcode">int=20
+a, b;</CODE> are <STRONG>not</STRONG> used.</P><A =
+name=3D"s4.8.2.2-variables-limited-scope"></A>
+<H5><A name=3D"s4.8.2.2-variables-limited-scope">4.8.2.2 Declared when =
+needed,=20
+initialized as soon as possible&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.2.2-variables-limited-scope"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H5>
+<P>Local variables are <STRONG>not</STRONG> habitually declared at the =
+start of=20
+their containing block or block-like construct. Instead, local variables =
+are=20
+declared close to the point they are first used (within reason), to =
+minimize=20
+their scope. Local variable declarations typically have initializers, or =
+are=20
+initialized immediately after declaration.</P><A =
+name=3D"s4.8.3-arrays"></A>
+<H4><A name=3D"s4.8.3-arrays">4.8.3 Arrays&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.3-arrays"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4><A=20
+name=3D"s4.8.3.1-array-initializers"></A>
+<H5><A name=3D"s4.8.3.1-array-initializers">4.8.3.1 Array initializers: =
+can be=20
+"block-like"&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.3.1-array-initializers"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H5>
+<P>Any array initializer may <EM>optionally</EM> be formatted as if it =
+were a=20
+"block-like construct." For example, the following are all valid=20
+(<STRONG>not</STRONG> an exhaustive list):</P>
+<PRE class=3D"prettyprint lang-java">new int[] {           new int[] {=0A=
+  0, 1, 2, 3            0,=0A=
+}                       1,=0A=
+                        2,=0A=
+new int[] {             3,=0A=
+  0, 1,               }=0A=
+  2, 3=0A=
+}                     new int[]=0A=
+                          {0, 1, 2, 3}=0A=
+</PRE><A=20
+name=3D"s4.8.3.2-array-declarations"></A>
+<H5><A name=3D"s4.8.3.2-array-declarations">4.8.3.2 No C-style array=20
+declarations&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.3.2-array-declarations"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H5>
+<P>The square brackets form a part of the <EM>type</EM>, not the =
+variable: <CODE=20
+class=3D"prettyprint lang-java">String[] args</CODE>, not <CODE =
+class=3D"prettyprint lang-java badcode">String=20
+args[]</CODE>.</P><A name=3D"s4.8.4-switch"></A>
+<H4><A name=3D"s4.8.4-switch">4.8.4 Switch statements&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.4-switch"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P class=3D"terminology"><B>Terminology Note:</B>&nbsp;Inside the braces =
+of a=20
+<EM>switch block</EM> are one or more <EM>statement groups</EM>. Each =
+statement=20
+group consists of one or more <EM>switch labels</EM> (either <CODE =
+class=3D"prettyprint lang-java">case=20
+FOO:</CODE> or <CODE class=3D"prettyprint lang-java">default:</CODE>), =
+followed by=20
+one or more statements.</P><A name=3D"s4.8.4.1-switch-indentation"></A>
+<H5><A name=3D"s4.8.4.1-switch-indentation">4.8.4.1 Indentation&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.4.1-switch-indentation"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H5>
+<P>As with any other block, the contents of a switch block are indented =
++2.</P>
+<P>After a switch label, a newline appears, and the indentation level is =
+
+increased +2, exactly as if a block were being opened. The following =
+switch=20
+label returns to the previous indentation level, as if a block had been=20
+closed.</P><A name=3D"fallthrough"><A =
+name=3D"s4.8.4.2-switch-fall-through">    =20
+</A>
+<H5><A name=3D"s4.8.4.2-switch-fall-through">4.8.4.2 Fall-through:=20
+commented&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.4.2-switch-fall-through"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H5>
+<P>Within a switch block, each statement group either terminates =
+abruptly (with=20
+a <CODE class=3D"prettyprint lang-java">break</CODE>, <CODE =
+class=3D"prettyprint lang-java">continue</CODE>,=20
+<CODE class=3D"prettyprint lang-java">return</CODE> or thrown =
+exception), or is=20
+marked with a comment to indicate that execution will or <EM>might</EM> =
+continue=20
+into the next statement group. Any comment that communicates the idea of =
+
+fall-through is sufficient (typically <CODE class=3D"prettyprint =
+lang-java">//=20
+fall through</CODE>). This special comment is not required in the last =
+statement=20
+group of the switch block. Example:</P>
+<PRE class=3D"prettyprint lang-java">switch (input) {=0A=
+  case 1:=0A=
+  case 2:=0A=
+    prepareOneOrTwo();=0A=
+    // fall through=0A=
+  case 3:=0A=
+    handleOneTwoOrThree();=0A=
+    break;=0A=
+  default:=0A=
+    handleLargeNumber(input);=0A=
+}=0A=
+</PRE><A=20
+name=3D"s4.8.4.3-switch-default"></A>
+<H5><A name=3D"s4.8.4.3-switch-default">4.8.4.3 The default case is=20
+present&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.4.3-switch-default"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H5>
+<P>Each switch statement includes a <CODE=20
+class=3D"prettyprint lang-java">default</CODE> statement group, even if =
+it=20
+contains no code.</P><A name=3D"annotations"><A =
+name=3D"s4.8.5-annotations">    =20
+</A>
+<H4><A name=3D"s4.8.5-annotations">4.8.5 Annotations&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.5-annotations"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Annotations applying to a class, method or constructor appear =
+immediately=20
+after the documentation block, and each annotation is listed on a line =
+of its=20
+own (that is, one annotation per line). These line breaks do not =
+constitute=20
+line-wrapping (Section 4.5, <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.5-line-wrapping">Line-wrapping</A>),=20
+so the indentation level is not increased. Example:</P>
+<PRE class=3D"prettyprint lang-java">@Override=0A=
+@Nullable=0A=
+public String getNameIfPresent() { ... }=0A=
+</PRE>
+<P class=3D"exception"><B>Exception:</B>&nbsp;a <EM>single</EM> =
+parameterless=20
+annotation <EM>may</EM> instead appear together with the first line of =
+the=20
+signature, for example:</P>
+<PRE class=3D"prettyprint lang-java">@Override public int hashCode() { =
+... }=0A=
+</PRE>
+<P>Annotations applying to a field also appear immediately after the=20
+documentation block, but in this case, <EM>multiple</EM> annotations =
+(possibly=20
+parameterized) may be listed on the same line; for example:</P>
+<PRE class=3D"prettyprint lang-java">@Partial @Mock DataLoader loader;=0A=
+</PRE>
+<P>There are no specific rules for formatting parameter and local =
+variable=20
+annotations.</P><A name=3D"comments"><A name=3D"s4.8.6-comments">     =
+</A>
+<H4><A name=3D"s4.8.6-comments">4.8.6 Comments&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.6-comments"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4><A=20
+name=3D"s4.8.6.1-block-comment-style"></A>
+<H5><A name=3D"s4.8.6.1-block-comment-style">4.8.6.1 Block comment =
+style&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.6.1-block-comment-style"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H5>
+<P>Block comments are indented at the same level as the surrounding =
+code. They=20
+may be in <CODE class=3D"prettyprint lang-java">/* ... */</CODE> style =
+or <CODE=20
+class=3D"prettyprint lang-java">// ...</CODE> style. For multi-line =
+<CODE class=3D"prettyprint lang-java">/*=20
+... */</CODE> comments, subsequent lines must start with <CODE>*</CODE> =
+aligned=20
+with the <CODE>*</CODE> on the previous line.</P>
+<PRE class=3D"prettyprint lang-java">/*=0A=
+ * This is          // And so           /* Or you can=0A=
+ * okay.            // is this.          * even do this. */=0A=
+ */=0A=
+</PRE>
+<P>Comments are not enclosed in boxes drawn with asterisks or other=20
+characters.</P>
+<P class=3D"tip"><B>Tip:</B>&nbsp;When writing multi-line comments, use =
+the <CODE=20
+class=3D"prettyprint lang-java">/* ... */</CODE> style if you want =
+automatic code=20
+formatters to re-wrap the lines when necessary (paragraph-style). Most=20
+formatters don't re-wrap lines in <CODE class=3D"prettyprint =
+lang-java">//=20
+...</CODE> style comment blocks.</P><A name=3D"modifiers"><A =
+name=3D"s4.8.7-modifiers">=20
+    </A>
+<H4><A name=3D"s4.8.7-modifiers">4.8.7 Modifiers&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s4.8.7-modifiers"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Class and member modifiers, when present, appear in the order =
+recommended by=20
+the Java Language Specification: </P>
+<PRE>public protected private abstract static final transient volatile =
+synchronized native strictfp=0A=
+</PRE><A=20
+name=3D"naming"><A name=3D"s5-naming">     </A>
+<H2><A name=3D"s5-naming">5 Naming&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5-naming"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H2><A=20
+name=3D"s5.1-identifier-names"></A>
+<H3><A name=3D"s5.1-identifier-names">5.1 Rules common to all =
+identifiers&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.1-identifier-names"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>Identifiers use only ASCII letters and digits, and in two cases noted =
+below,=20
+underscores. Thus each valid identifier name is matched by the regular=20
+expression <CODE>\w+</CODE> .</P>
+<P> In Google Style special prefixes or suffixes, like those seen in the =
+
+examples <CODE class=3D"prettyprint lang-java badcode">name_</CODE>, =
+<CODE class=3D"prettyprint lang-java badcode">mName</CODE>,=20
+<CODE class=3D"prettyprint lang-java badcode">s_name</CODE> and <CODE =
+class=3D"prettyprint lang-java badcode">kName</CODE>,=20
+are <STRONG>not</STRONG> used.</P><A =
+name=3D"s5.2-specific-identifier-names"></A>
+<H3><A name=3D"s5.2-specific-identifier-names">5.2 Rules by identifier=20
+type&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2-specific-identifier-names"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3><A=20
+name=3D"s5.2.1-package-names"></A>
+<H4><A name=3D"s5.2.1-package-names">5.2.1 Package names&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.1-package-names"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Package names are all lowercase, with consecutive words simply =
+concatenated=20
+together (no underscores).</P><A name=3D"s5.2.2-class-names"></A>
+<H4><A name=3D"s5.2.2-class-names">5.2.2 Class names&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.2-class-names"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Class names are written in <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.3-camel-case">UpperCamelCase</A>.</P>
+<P>Class names are typically nouns or noun phrases. Interface names may=20
+sometimes be adjectives or adjective phrases instead. There are no =
+specific=20
+rules or even well-established conventions for naming annotation =
+types.</P>
+<P><EM>Test</EM> classes are named starting with the name of the class =
+they are=20
+testing, and ending with <CODE class=3D"prettyprint =
+lang-java">Test</CODE>. For=20
+example, <CODE class=3D"prettyprint lang-java">HashTest</CODE> or <CODE =
+class=3D"prettyprint lang-java">HashIntegrationTest</CODE>.</P><A=20
+name=3D"s5.2.3-method-names"></A>
+<H4><A name=3D"s5.2.3-method-names">5.2.3 Method names&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.3-method-names"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Method names are written in <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.3-camel-case">lowerCamelCase</A>.</P>
+<P>Method names are typically verbs or verb phrases.</P>
+<P>Underscores may appear in JUnit <EM>test</EM> method names to =
+separate=20
+logical components of the name. One typical pattern is=20
+<CODE>test<I>&lt;MethodUnderTest&gt;</I>_<I>&lt;state&gt;</I></CODE>, =
+for=20
+example <CODE class=3D"prettyprint lang-java">testPop_emptyStack</CODE>. =
+There is=20
+no One Correct Way to name test methods.</P><A name=3D"constants"><A =
+name=3D"s5.2.4-constant-names">=20
+    </A>
+<H4><A name=3D"s5.2.4-constant-names">5.2.4 Constant names&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.4-constant-names"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Constant names use <CODE class=3D"prettyprint =
+lang-java">CONSTANT_CASE</CODE>:=20
+all uppercase letters, with words separated by underscores. But what =
+<EM>is</EM>=20
+a constant, exactly?</P>
+<P>Every constant is a static final field, but not all static final =
+fields are=20
+constants. Before choosing constant case, consider whether the field =
+really=20
+<EM>feels like</EM> a constant. For example, if any of that instance's=20
+observable state can change, it is almost certainly not a constant. =
+Merely=20
+<EM>intending</EM> to never mutate the object is generally not enough.=20
+Examples:</P>
+<PRE class=3D"prettyprint lang-java">// Constants=0A=
+static final int NUMBER =3D 5;=0A=
+static final ImmutableList&lt;String&gt; NAMES =3D =
+ImmutableList.of("Ed", "Ann");=0A=
+static final Joiner COMMA_JOINER =3D Joiner.on(',');  // because Joiner =
+is immutable=0A=
+static final SomeMutableType[] EMPTY_ARRAY =3D {};=0A=
+enum SomeEnum { ENUM_CONSTANT }=0A=
+=0A=
+// Not constants=0A=
+static String nonFinal =3D "non-final";=0A=
+final String nonStatic =3D "non-static";=0A=
+static final Set&lt;String&gt; mutableCollection =3D new =
+HashSet&lt;String&gt;();=0A=
+static final ImmutableSet&lt;SomeMutableType&gt; mutableElements =3D =
+ImmutableSet.of(mutable);=0A=
+static final Logger logger =3D Logger.getLogger(MyClass.getName());=0A=
+static final String[] nonEmptyArray =3D {"these", "can", "change"};=0A=
+</PRE>
+<P>These names are typically nouns or noun phrases.</P><A =
+name=3D"s5.2.5-non-constant-field-names"></A>
+<H4><A name=3D"s5.2.5-non-constant-field-names">5.2.5 Non-constant field =
+
+names&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.5-non-constant-field-names"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Non-constant field names (static or otherwise) are written in <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.3-camel-case">lowerCamelCase</A>.</P>
+<P>These names are typically nouns or noun phrases.</P><A =
+name=3D"s5.2.6-parameter-names"></A>
+<H4><A name=3D"s5.2.6-parameter-names">5.2.6 Parameter names&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.6-parameter-names"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Parameter names are written in <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.3-camel-case">lowerCamelCase</A>.</P>
+<P>One-character parameter names should be avoided.</P><A =
+name=3D"s5.2.7-local-variable-names"></A>
+<H4><A name=3D"s5.2.7-local-variable-names">5.2.7 Local variable =
+names&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.7-local-variable-names"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Local variable names are written in <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.3-camel-case">lowerCamelCase</A>,=20
+and can be abbreviated more liberally than other types of names.</P>
+<P>However, one-character names should be avoided, except for temporary =
+and=20
+looping variables.</P>
+<P>Even when final and immutable, local variables are not considered to =
+be=20
+constants, and should not be styled as constants.</P><A =
+name=3D"s5.2.8-type-variable-names"></A>
+<H4><A name=3D"s5.2.8-type-variable-names">5.2.8 Type variable =
+names&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.8-type-variable-names"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Each type variable is named in one of two styles:</P>
+<UL>
+  <LI>A single capital letter, optionally followed by a single numeral =
+(such as =20
+   <CODE class=3D"prettyprint lang-java">E</CODE>, <CODE =
+class=3D"prettyprint lang-java">T</CODE>,=20
+    <CODE class=3D"prettyprint lang-java">X</CODE>, <CODE =
+class=3D"prettyprint lang-java">T2</CODE>)=20
+    </LI>
+  <LI>A name in the form used for classes (see Section 5.2.2,   <A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.2.2-class-names">Class=20
+  names</A>), followed by the capital letter   <CODE =
+class=3D"prettyprint lang-java">T</CODE>=20
+  (examples:   <CODE class=3D"prettyprint lang-java">RequestT</CODE>,   =
+<CODE=20
+  class=3D"prettyprint lang-java">FooBarT</CODE>).</LI></UL><A =
+name=3D"acronyms"><A=20
+name=3D"camelcase"><A name=3D"s5.3-camel-case">     </A>
+<H3><A name=3D"s5.3-camel-case">5.3 Camel case: defined&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s5.3-camel-case"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>Sometimes there is more than one reasonable way to convert an English =
+phrase=20
+into camel case, such as when acronyms or unusual constructs like "IPv6" =
+or=20
+"iOS" are present. To improve predictability, Google Style specifies the =
+
+following (nearly) deterministic scheme.</P>
+<P>Beginning with the prose form of the name:</P>
+<OL>
+  <LI>Convert the phrase to plain ASCII and remove any apostrophes. For =
+example,=20
+  "M=C3=BCller's  algorithm" might become "Muellers algorithm".</LI>
+  <LI>Divide this result into words, splitting on spaces and any =
+remaining=20
+  punctuation (typically  hyphens).  =20
+  <UL>
+    <LI><EM>Recommended:</EM> if any word already has a conventional =
+camel-case=20
+    appearance in common    usage, split this into its constituent parts =
+(e.g.,=20
+    "AdWords" becomes "ad&nbsp;words"). Note    that a word such as =
+"iOS" is not=20
+    really in camel case <EM>per se</EM>; it defies <EM>any</EM>    =
+convention,=20
+    so this recommendation does not apply.</LI></UL></LI>
+  <LI>Now lowercase <EM>everything</EM> (including acronyms), then =
+uppercase=20
+  only the first  character of:  =20
+  <UL>
+    <LI>... each word, to yield <EM>upper camel case</EM>, or</LI>
+    <LI>... each word except the first, to yield <EM>lower camel=20
+  case</EM></LI></UL></LI>
+  <LI>Finally, join all the words into a single identifier.</LI></OL>
+<P>Note that the casing of the original words is almost entirely =
+disregarded.=20
+Examples:</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>Prose form</TH>
+    <TH>Correct</TH>
+    <TH>Incorrect</TH></TR>
+  <TR>
+    <TD>"XML HTTP request"</TD>
+    <TD><CODE class=3D"prettyprint lang-java">XmlHttpRequest</CODE></TD>
+    <TD><CODE=20
+class=3D"prettyprint lang-java badcode">XMLHTTPRequest</CODE></TD></TR>
+  <TR>
+    <TD>"new customer ID"</TD>
+    <TD><CODE class=3D"prettyprint lang-java">newCustomerId</CODE></TD>
+    <TD><CODE class=3D"prettyprint lang-java =
+badcode">newCustomerID</CODE></TD></TR>
+  <TR>
+    <TD>"inner stopwatch"</TD>
+    <TD><CODE class=3D"prettyprint lang-java">innerStopwatch</CODE></TD>
+    <TD><CODE=20
+class=3D"prettyprint lang-java badcode">innerStopWatch</CODE></TD></TR>
+  <TR>
+    <TD>"supports IPv6 on iOS?"</TD>
+    <TD><CODE class=3D"prettyprint =
+lang-java">supportsIpv6OnIos</CODE></TD>
+    <TD><CODE=20
+  class=3D"prettyprint lang-java =
+badcode">supportsIPv6OnIOS</CODE></TD></TR>
+  <TR>
+    <TD>"YouTube importer"</TD>
+    <TD><CODE class=3D"prettyprint =
+lang-java">YouTubeImporter</CODE><BR><CODE=20
+      class=3D"prettyprint lang-java">YoutubeImporter</CODE>*</TD>
+    <TD></TR></TBODY></TABLE>
+<P>*Acceptable, but not recommended.</P>
+<P class=3D"note"><B>Note:</B>&nbsp;Some words are ambiguously =
+hyphenated in the=20
+English language: for example "nonempty" and "non-empty" are both =
+correct, so=20
+the method names <CODE class=3D"prettyprint =
+lang-java">checkNonempty</CODE> and=20
+<CODE class=3D"prettyprint lang-java">checkNonEmpty</CODE> are likewise =
+both=20
+correct.</P><A name=3D"s6-programming-practices"></A>
+<H2><A name=3D"s6-programming-practices">6 Programming Practices&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s6-programming-practices"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H2><A=20
+name=3D"s6.1-override-annotation"></A>
+<H3><A name=3D"s6.1-override-annotation">6.1 @Override: always =
+used&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s6.1-override-annotation"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>The <CODE class=3D"prettyprint lang-java">@Override</CODE> annotation =
+is used=20
+in any context in which it is legal.</P><A name=3D"caughtexceptions"><A =
+name=3D"s6.2-caught-exceptions">=20
+    </A>
+<H3><A name=3D"s6.2-caught-exceptions">6.2 Caught exceptions: not =
+ignored&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s6.2-caught-exceptions"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>Except as noted below, it is very rarely correct to do nothing in =
+response to=20
+a caught exception. (Typical responses are to log it, or if it is =
+considered=20
+"impossible", rethrow it as an <CODE=20
+class=3D"prettyprint lang-java">AssertionError</CODE>.)</P>
+<P>When it truly is appropriate to take no action whatsoever in a catch =
+block,=20
+the reason this is justified is explained in a comment.</P>
+<PRE class=3D"prettyprint lang-java">try {=0A=
+  int i =3D Integer.parseInt(response);=0A=
+  return handleNumericResponse(i);=0A=
+} catch (NumberFormatException ok) {=0A=
+  // it's not numeric; that's fine, just continue=0A=
+}=0A=
+return handleTextResponse(response);=0A=
+</PRE>
+<P class=3D"exception"><B>Exception:</B>&nbsp;in tests, a caught =
+exception may be=20
+ignored without comment <EM>if</EM> it is named <CODE =
+class=3D"prettyprint lang-java">expected</CODE>.=20
+The following is a very common idiom for ensuring that the method under =
+test=20
+<EM>does</EM> throw an exception of the expected type, so a comment is=20
+unnecessary here.</P>
+<PRE class=3D"prettyprint lang-java">try {=0A=
+  emptyStack.pop();=0A=
+  fail();=0A=
+} catch (NoSuchElementException expected) {=0A=
+}=0A=
+</PRE><A=20
+name=3D"s6.3-static-members"></A>
+<H3><A name=3D"s6.3-static-members">6.3 Static members: qualified using=20
+class&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s6.3-static-members"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>When a reference to a static class member must be qualified, it is =
+qualified=20
+with that class's name, not with a reference or expression of that =
+class's=20
+type.</P>
+<PRE class=3D"prettyprint lang-java">Foo aFoo =3D ...;=0A=
+Foo.aStaticMethod(); // good=0A=
+<SPAN class=3D"badcode">aFoo.aStaticMethod();</SPAN> // bad=0A=
+<SPAN =
+class=3D"badcode">somethingThatYieldsAFoo().aStaticMethod();</SPAN> // =
+very bad=0A=
+</PRE><A=20
+name=3D"finalizers"><A name=3D"s6.4-finalizers">     </A>
+<H3><A name=3D"s6.4-finalizers">6.4 Finalizers: not used&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s6.4-finalizers"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>It is <STRONG>extremely rare</STRONG> to override <CODE =
+class=3D"prettyprint lang-java">Object.finalize</CODE>.</P>
+<P class=3D"tip"><B>Tip:</B>&nbsp;Don't do it. If you absolutely must, =
+first read=20
+and understand <A=20
+href=3D"http://books.google.com/books?isbn=3D8131726592"><EM>Effective =
+Java</EM></A>
+ Item 7, "Avoid Finalizers," very carefully, and <EM>then</EM> don't do=20
+it.</P><A name=3D"javadoc"><A name=3D"s7-javadoc">     </A>
+<H2><A name=3D"s7-javadoc">7 Javadoc&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7-javadoc"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H2><A=20
+name=3D"s7.1-javadoc-formatting"></A>
+<H3><A name=3D"s7.1-javadoc-formatting">7.1 Formatting&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.1-javadoc-formatting"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3><A=20
+name=3D"s7.1.1-javadoc-multi-line"></A>
+<H4><A name=3D"s7.1.1-javadoc-multi-line">7.1.1 General form&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.1.1-javadoc-multi-line"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>The <EM>basic</EM> formatting of Javadoc blocks is as seen in this =
+general=20
+example:</P>
+<PRE class=3D"prettyprint lang-java">/**=0A=
+ * Multiple lines of Javadoc text are written here,=0A=
+ * wrapped normally...=0A=
+ */=0A=
+public int method(String p1) { ... }=0A=
+</PRE>
+<P>... or in this single-line example:</P>
+<PRE class=3D"prettyprint lang-java">/** An especially short bit of =
+Javadoc. */=0A=
+</PRE>
+<P>The general form is always acceptable. The single-line form may be=20
+substituted when there are no at-clauses present, and the entirety of =
+the=20
+Javadoc block (including comment markers) can fit on a single =
+line.</P><A name=3D"s7.1.2-javadoc-paragraphs"></A>
+<H4><A name=3D"s7.1.2-javadoc-paragraphs">7.1.2 Paragraphs&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.1.2-javadoc-paragraphs"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>One blank line=E2=80=94that is, a line containing only the aligned =
+leading asterisk
+ (<CODE>*</CODE>)=E2=80=94appears between paragraphs, and before the =
+group of=20
+"at-clauses" if present. Each paragraph but the first has =
+<CODE>&lt;p&gt;</CODE>=20
+immediately before the first word, with no space after.</P><A =
+name=3D"s7.1.3-javadoc-at-clauses"></A>
+<H4><A name=3D"s7.1.3-javadoc-at-clauses">7.1.3 At-clauses&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.1.3-javadoc-at-clauses"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Any of the standard "at-clauses" that are used appear in the order=20
+<CODE>@param</CODE>, <CODE>@return</CODE>, <CODE>@throws</CODE>,=20
+<CODE>@deprecated</CODE>, and these four types never appear with an =
+empty=20
+description. When an at-clause doesn't fit on a single line, =
+continuation lines
+ are indented four (or more) spaces from the position of the =
+<CODE>@</CODE>.=20
+</P><A name=3D"s7.2-summary-fragment"></A>
+<H3><A name=3D"s7.2-summary-fragment">7.2 The summary fragment&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.2-summary-fragment"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>The Javadoc for each class and member begins with a brief =
+<STRONG>summary=20
+fragment</STRONG>. This fragment is very important: it is the only part =
+of the=20
+text that appears in certain contexts such as class and method =
+indexes.</P>
+<P>This is a fragment=E2=80=94a noun phrase or verb phrase, not a =
+complete sentence. It=20
+does <STRONG>not</STRONG> begin with <CODE class=3D"badcode">A {@code =
+Foo} is=20
+a...</CODE>, or <CODE class=3D"badcode">This method returns...</CODE>, =
+nor does it=20
+form a complete imperative sentence like <CODE class=3D"badcode">Save =
+the=20
+record.</CODE>. However, the fragment is capitalized and punctuated as =
+if it=20
+were a complete sentence.</P>
+<P class=3D"tip"><B>Tip:</B>&nbsp;A common mistake is to write simple =
+Javadoc in=20
+the form <CODE class=3D"prettyprint lang-java badcode">/** @return the =
+customer ID=20
+*/</CODE>. This is incorrect, and should be changed to <CODE =
+class=3D"prettyprint lang-java">/**=20
+Returns the customer ID. */</CODE>.</P><A=20
+name=3D"s7.3-javadoc-where-required"></A>
+<H3><A name=3D"s7.3-javadoc-where-required">7.3 Where Javadoc is =
+used&nbsp;<A=20
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.3-javadoc-where-required"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H3>
+<P>At the <EM>minimum</EM>, Javadoc is present for every <CODE =
+class=3D"prettyprint lang-java">public</CODE>=20
+class, and every <CODE class=3D"prettyprint lang-java">public</CODE> or =
+<CODE=20
+class=3D"prettyprint lang-java">protected</CODE> member of such a class, =
+with a=20
+few exceptions noted below.</P><A =
+name=3D"s7.3.1-javadoc-exception-self-explanatory"></A>
+<H4><A name=3D"s7.3.1-javadoc-exception-self-explanatory">7.3.1 =
+Exception:=20
+self-explanatory methods&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.3.1-javadoc-exception-self-explanatory"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Javadoc is optional for "simple, obvious" methods like <CODE =
+class=3D"prettyprint lang-java">getFoo</CODE>,=20
+in cases where there <EM>really and truly</EM> is nothing else =
+worthwhile to say=20
+but "Returns the foo".</P>
+<P>The test methods of a unit test class are perhaps the most common =
+example of=20
+this exemption. These methods can <EM>usually</EM> be named =
+descriptively enough=20
+that no additional documentation is needed.</P>
+<P class=3D"tip"><B>Tip:</B>&nbsp;<STRONG>Important:</STRONG> it is not=20
+appropriate to cite this exception to justify omitting relevant =
+information that=20
+a typical reader might need to know. For example, for a method named =
+<CODE=20
+class=3D"prettyprint lang-java">getCanonicalName</CODE>, don't omit its=20
+documentation (with the rationale that it would say only <CODE =
+class=3D"prettyprint lang-java badcode">/**=20
+Returns the canonical name. */</CODE>) if a typical reader may have no =
+idea what=20
+the term "canonical name" means!</P><A=20
+name=3D"s7.3.2-javadoc-exception-overrides"></A>
+<H4><A name=3D"s7.3.2-javadoc-exception-overrides">7.3.2 Exception:=20
+overrides&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.3.2-javadoc-exception-overrides"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Javadoc is not always present on a method that overrides a supertype =
+method.=20
+</P><A name=3D"s7.3.3-javadoc-optional"></A>
+<H4><A name=3D"s7.3.3-javadoc-optional">7.3.3 Optional javadoc&nbsp;<A =
+href=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguide.html#=
+s7.3.3-javadoc-optional"><IMG=20
+width=3D"21" height=3D"21" =
+src=3D"http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.pn=
+g"></A></H4>
+<P>Classes and members that are not visible outside their package still =
+have=20
+Javadoc <EM>as needed</EM>. Whenever an implementation comment would be =
+used to=20
+define the overall purpose or behavior of a class, method or field, that =
+comment=20
+is written as Javadoc instead. (It's more uniform, and more=20
+tool-friendly.)</P></DIV></DIV>
+<HR>
+
+<DIV class=3D"change">Last changed: December 19, =
+2013</DIV></BODY></HTML>
+
+------=_NextPart_000_0000_01CF0D13.B4C1E760
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://google-styleguide.googlecode.com/svn/trunk/javaguidelink.png
+
+iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAhElEQVQ4y+2TMQrAIAxFcwHX4nE6
+ey4P02M4incRSsHByX5phtTWzXZyeBBi8oyKVEqh0dCUTikCIgMCyKAmEtjAImoWziWuydxjHlIW
+1iAC12CF1L6sR+41rbTutgMlBBqsHbSoU9wbWukB/O0I1xSlg2tqfXX8Mun4O/3k9eePmtJxnPP3
+OoxXGEE5AAAAAElFTkSuQmCC
+
+------=_NextPart_000_0000_01CF0D13.B4C1E760
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://google-styleguide.googlecode.com/svn/trunk/javaguide.css
+
+table {
+	border-collapse: collapse;
+}
+td {
+	padding: 2px 12px; border: 1px solid rgb(204, 204, 204); font-size: =
+10pt;
+}
+th {
+	padding: 2px 12px; border: 1px solid rgb(204, 204, 204); font-size: =
+10pt;
+}
+code {
+	color: rgb(0, 102, 0);
+}
+samp {
+	color: rgb(0, 102, 0);
+}
+var {
+	color: rgb(0, 102, 0);
+}
+pre {
+	border-width: 1px 1px 1px 5px; border-style: solid; border-color: =
+rgb(240, 255, 240); padding: 4px 12px; color: rgb(0, 102, 0); font-size: =
+10pt; display: block; background-color: rgb(232, 255, 246);
+}
+pre.badcode {
+	border-color: rgb(255, 240, 240); color: rgb(204, 0, 0); =
+background-color: rgb(255, 230, 216);
+}
+hr {
+	border-width: 1px; color: rgb(255, 255, 255); margin-top: 3.5em;
+}
+html {
+	padding: 0px; margin-top: 2em; margin-right: 10%; margin-left: 10%;
+}
+.bp-reset-element {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+body {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+h1 {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+h2 {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+h3 {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+h4 {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+h5 {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+h6 {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+article {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+aside {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+details {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+figcaption {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+figure {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+footer {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+header {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+hgroup {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+menu {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+nav {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+section {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+summary {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+blockquote {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+q {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+th {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+td {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+caption {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+table {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+div {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+span {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+object {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+iframe {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+p {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+pre {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+a {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+abbr {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+acronym {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+address {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+code {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+del {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+dfn {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+em {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+img {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+dl {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+dt {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+dd {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+ol {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+ul {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+li {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+fieldset {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+form {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+label {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+legend {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+caption {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+tbody {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+tfoot {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+thead {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+tr {
+	margin: 0px; padding: 0px; border: 0px currentColor; font-family: =
+inherit; font-size: 100%; font-style: inherit; font-weight: inherit; =
+vertical-align: baseline;
+}
+body {
+	color: rgb(34, 34, 34); line-height: 1.67; overflow: auto; font-family: =
+"Arial", sans-serif; font-size: 81.25%; background-color: rgb(255, 255, =
+255);
+}
+.change {
+	text-align: right; margin-bottom: 1em;
+}
+h1 {
+	font-weight: bold;
+}
+h2 {
+	font-weight: bold;
+}
+h3 {
+	font-weight: bold;
+}
+h4 {
+	font-weight: bold;
+}
+h5 {
+	font-weight: bold;
+}
+h6 {
+	font-weight: bold;
+}
+h1 {
+	text-align: center; margin-bottom: 0.5em;
+}
+h2 {
+	margin-top: 1.5em; margin-bottom: 0.75em;
+}
+h3 {
+	margin-top: 1.5em; margin-bottom: 0.75em;
+}
+h4 {
+	margin-top: 1.5em; margin-bottom: 0.75em;
+}
+h5 {
+	margin-top: 1.5em; margin-bottom: 0.75em;
+}
+h6 {
+	margin-top: 1.5em; margin-bottom: 0.75em;
+}
+h1 {
+	font-size: 200%;
+}
+h2 {
+	font-size: 167%;
+}
+h3 {
+	font-size: 133%;
+}
+h4 {
+	font-size: 120%;
+}
+h5 {
+	font-size: 110%;
+}
+p {
+	margin: 0px 0px 1.5em;
+}
+a[href=3D''] {
+	cursor: default;
+}
+h1 img {
+	margin: 0px;
+}
+h2 img {
+	margin: 0px;
+}
+h3 img {
+	margin: 0px;
+}
+h4 img {
+	margin: 0px;
+}
+h5 img {
+	margin: 0px;
+}
+h6 img {
+	margin: 0px;
+}
+a img {
+	border: currentColor;
+}
+pre {
+	margin: 1.5em 0px; white-space: pre;
+}
+pre {
+	font: 1em/1.5 "Droid Sans Mono", monospace; font-size-adjust: none; =
+font-stretch: normal;
+}
+code {
+	font: 1em/1.5 "Droid Sans Mono", monospace; font-size-adjust: none; =
+font-stretch: normal;
+}
+kbd {
+	font: 1em/1.5 "Droid Sans Mono", monospace; font-size-adjust: none; =
+font-stretch: normal;
+}
+tt {
+	font: 1em/1.5 "Droid Sans Mono", monospace; font-size-adjust: none; =
+font-stretch: normal;
+}
+dl {
+	margin: 0px 0px 1.5em;
+}
+dl dt {
+	font-weight: bold;
+}
+dd {
+	margin-left: 1.5em;
+}
+dd.toc3 {
+	margin-left: 3em;
+}
+hr {
+	border-width: 1px 0px 0px; border-style: solid none none; border-color: =
+rgb(204, 204, 204) currentColor currentColor; height: 0px; =
+background-color: rgb(204, 204, 204);
+}
+table {
+	margin: 0px 0px 1.5em; border: 1px solid rgb(187, 187, 187); width: =
+100%; vertical-align: middle; border-collapse: collapse; border-spacing: =
+0;
+}
+table.unlined {
+	border: 0px currentColor;
+}
+table.unlined th {
+	border: 0px currentColor;
+}
+table.unlined tr {
+	border: 0px currentColor;
+}
+table.unlined td {
+	border: 0px currentColor;
+}
+th {
+	padding: 4px; text-align: left; font-weight: normal; vertical-align: =
+middle; float: none !important;
+}
+td {
+	padding: 4px; text-align: left; font-weight: normal; vertical-align: =
+middle; float: none !important;
+}
+caption {
+	padding: 4px; text-align: left; font-weight: normal; vertical-align: =
+middle; float: none !important;
+}
+caption {
+	padding: 0px;
+}
+td {
+	border: 1px solid rgb(187, 187, 187); vertical-align: top;
+}
+th {
+	background: rgb(229, 236, 249); border-width: 0px 0px 1px; =
+border-style: none none solid; border-color: currentColor currentColor =
+black; font-weight: bold;
+}
+table th code {
+	color: inherit; background-color: inherit;
+}
+table tfoot th {
+	border: 1px solid rgb(187, 187, 187);
+}
+tfoot {
+	font-style: italic;
+}
+caption {
+	background: rgb(238, 238, 238);
+}
+table[border=3D'0'] {
+	border: currentColor;
+}
+table[border=3D'0'] > tbody > tr > td {
+	border: currentColor;
+}
+table[border=3D'0'] > tr > td {
+	border: currentColor;
+}
+tr.alt td {
+	background-color: rgb(239, 239, 239);
+}
+td.alt {
+	background-color: rgb(239, 239, 239);
+}
+table.striped tr:nth-child(2n) td {
+	background: rgb(239, 239, 239);
+}
+table tr.even td {
+	background: rgb(239, 239, 239);
+}
+table.columns {
+	border: currentColor;
+}
+table.columns > tbody > tr > td {
+	padding: 0px 3em 0px 0px; border: currentColor;
+}
+table.columns > tr > td {
+	padding: 0px 3em 0px 0px; border: currentColor;
+}
+table.columns > tbody > tr > td:last-child {
+	padding: 0px; border: currentColor;
+}
+table.columns > tr > td:last-child {
+	padding: 0px; border: currentColor;
+}
+ul {
+	margin: 0px 1.5em 1.5em 0px; padding-left: 2em;
+}
+ol {
+	margin: 0px 1.5em 1.5em 0px; padding-left: 2em;
+}
+li ul {
+	margin: 0px;
+}
+li ol {
+	margin: 0px;
+}
+ul {
+	list-style-type: disc;
+}
+ol {
+	list-style-type: decimal;
+}
+ul {
+	list-style-type: disc;
+}
+ul ul {
+	list-style-type: circle;
+}
+ul ul ul {
+	list-style-type: square;
+}
+ul.disc {
+	list-style-type: disc;
+}
+ul.circle {
+	list-style-type: circle;
+}
+ul.square {
+	list-style-type: square;
+}
+ol {
+	list-style-type: decimal;
+}
+ol ol {
+	list-style-type: lower-alpha;
+}
+ol ol ol {
+	list-style-type: lower-roman;
+}
+ol ul {
+	list-style-type: circle;
+}
+ol.decimal {
+	list-style-type: decimal;
+}
+ol.upper-alpha {
+	list-style-type: upper-alpha;
+}
+ol.lower-alpha {
+	list-style-type: lower-alpha;
+}
+ol.upper-roman {
+	list-style-type: upper-roman;
+}
+ol.lower-roman {
+	list-style-type: lower-roman;
+}
+ol.nolist {
+	padding-left: 0px; margin-left: 0px; list-style-type: none; =
+list-style-image: none;
+}
+ul.nolist {
+	padding-left: 0px; margin-left: 0px; list-style-type: none; =
+list-style-image: none;
+}
+.center {
+	text-align: center;
+}
+code {
+	color: rgb(0, 112, 0);
+}
+kbd {
+	color: rgb(0, 112, 0);
+}
+pre {
+	color: rgb(0, 112, 0);
+}
+kbd {
+	font-weight: bold;
+}
+table.striped code {
+	background-color: inherit;
+}
+pre {
+	padding: 6px 10px; border: 1px solid rgb(187, 187, 187); overflow: =
+auto; background-color: rgb(250, 250, 250);
+}
+pre.prettyprint {
+	padding: 6px 10px !important; border: 1px solid rgb(187, 187, 187) =
+!important;
+}
+code.bad {
+	background-color: rgb(255, 204, 204);
+}
+code.badcode {
+	background-color: rgb(255, 204, 204);
+}
+pre.bad {
+	border-top-color: rgb(170, 0, 51); border-left-color: rgb(170, 0, 51); =
+border-top-width: 1px; border-left-width: 1px; border-top-style: inset; =
+border-left-style: inset; background-color: rgb(255, 204, 204);
+}
+pre.badcode {
+	border-top-color: rgb(170, 0, 51); border-left-color: rgb(170, 0, 51); =
+border-top-width: 1px; border-left-width: 1px; border-top-style: inset; =
+border-left-style: inset; background-color: rgb(255, 204, 204);
+}
+.tip {
+	padding: 6px 8px 6px 10px; border-left-color: rgb(255, 239, 112); =
+border-left-width: 6px; border-left-style: solid; background-color: =
+rgb(255, 251, 217);
+}
+.note {
+	padding: 6px 8px 6px 10px; border-left-color: rgb(51, 102, 204); =
+border-left-width: 6px; border-left-style: solid; background-color: =
+rgb(229, 236, 249);
+}
+@media print
+{
+.str {
+	color: rgb(0, 102, 0);
+}
+.kwd {
+	color: rgb(0, 0, 102); font-weight: bold;
+}
+.com {
+	color: rgb(102, 0, 0); font-style: italic;
+}
+.typ {
+	color: rgb(68, 0, 68); font-weight: bold;
+}
+.lit {
+	color: rgb(0, 68, 68);
+}
+.pun {
+	color: rgb(68, 68, 0);
+}
+.opn {
+	color: rgb(68, 68, 0);
+}
+.clo {
+	color: rgb(68, 68, 0);
+}
+.pln {
+	color: rgb(0, 0, 0);
+}
+.tag {
+	color: rgb(0, 0, 102); font-weight: bold;
+}
+.atn {
+	color: rgb(68, 0, 68);
+}
+.atv {
+	color: rgb(0, 102, 0);
+}
+h1 {
+	font-style: italic;
+}
+}
+ol.linenums {
+	margin-top: 0px; margin-bottom: 0px;
+}
+code {
+	padding: 0.25em 0.5em; white-space: nowrap; background-color: rgb(250, =
+250, 250);
+}
+
+------=_NextPart_000_0000_01CF0D13.B4C1E760
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://google-code-prettify.googlecode.com/svn/loader/run_prettify.js
+
+!function(){var r=3Dnull;=0A=
+(function(){function X(e){function =
+j(){try{J.doScroll("left")}catch(e){P(j,50);return}w("poll")}function =
+w(j){if(!(j.type=3D=3D"readystatechange"&&x.readyState!=3D"complete")&&((=
+j.type=3D=3D"load"?n:x)[z](i+j.type,w,!1),!m&&(m=3D!0)))e.call(n,j.type||=
+j)}var =
+Y=3Dx.addEventListener,m=3D!1,C=3D!0,t=3DY?"addEventListener":"attachEven=
+t",z=3DY?"removeEventListener":"detachEvent",i=3DY?"":"on";if(x.readyStat=
+e=3D=3D"complete")e.call(n,"lazy");else{if(x.createEventObject&&J.doScrol=
+l){try{C=3D!n.frameElement}catch(A){}C&&j()}x[t](i+"DOMContentLoaded",=0A=
+w,!1);x[t](i+"readystatechange",w,!1);n[t](i+"load",w,!1)}}function =
+Q(){S&&X(function(){var e=3DK.length;$(e?function(){for(var =
+j=3D0;j<e;++j)(function(e){P(function(){n.exports[K[e]].apply(n,arguments=
+)},0)})(j)}:void 0)})}for(var =
+n=3Dwindow,P=3Dn.setTimeout,x=3Ddocument,J=3Dx.documentElement,L=3Dx.head=
+||x.getElementsByTagName("head")[0]||J,z=3D"",A=3Dx.getElementsByTagName(=
+"script"),m=3DA.length;--m>=3D0;){var =
+M=3DA[m],T=3DM.src.match(/^[^#?]*\/run_prettify\.js(\?[^#]*)?(?:#.*)?$/);=
+if(T){z=3DT[1]||"";M.parentNode.removeChild(M);=0A=
+break}}var =
+S=3D!0,D=3D[],N=3D[],K=3D[];z.replace(/[&?]([^&=3D]+)=3D([^&]+)/g,functio=
+n(e,j,w){w=3DdecodeURIComponent(w);j=3DdecodeURIComponent(j);j=3D=3D"auto=
+run"?S=3D!/^[0fn]/i.test(w):j=3D=3D"lang"?D.push(w):j=3D=3D"skin"?N.push(=
+w):j=3D=3D"callback"&&K.push(w)});m=3D0;for(z=3DD.length;m<z;++m)(functio=
+n(){var =
+e=3Dx.createElement("script");e.onload=3De.onerror=3De.onreadystatechange=
+=3Dfunction(){if(e&&(!e.readyState||/loaded|complete/.test(e.readyState))=
+)e.onerror=3De.onload=3De.onreadystatechange=3Dr,--R,R||P(Q,0),e.parentNo=
+de&&e.parentNode.removeChild(e),=0A=
+e=3Dr};e.type=3D"text/javascript";e.src=3D"https://google-code-prettify.g=
+ooglecode.com/svn/loader/lang-"+encodeURIComponent(D[m])+".js";L.insertBe=
+fore(e,L.firstChild)})(D[m]);for(var =
+R=3DD.length,A=3D[],m=3D0,z=3DN.length;m<z;++m)A.push("https://google-cod=
+e-prettify.googlecode.com/svn/loader/skins/"+encodeURIComponent(N[m])+".c=
+ss");A.push("https://google-code-prettify.googlecode.com/svn/loader/prett=
+ify.css");(function(e){function j(m){if(m!=3D=3Dw){var =
+n=3Dx.createElement("link");n.rel=3D"stylesheet";n.type=3D"text/css";=0A=
+if(m+1<w)n.error=3Dn.onerror=3Dfunction(){j(m+1)};n.href=3De[m];L.appendC=
+hild(n)}}var w=3De.length;j(0)})(A);var =
+$=3Dfunction(){window.PR_SHOULD_USE_CONTINUATION=3D!0;var =
+e;(function(){function j(a){function d(f){var =
+b=3Df.charCodeAt(0);if(b!=3D=3D92)return b;var =
+a=3Df.charAt(1);return(b=3Di[a])?b:"0"<=3Da&&a<=3D"7"?parseInt(f.substrin=
+g(1),8):a=3D=3D=3D"u"||a=3D=3D=3D"x"?parseInt(f.substring(2),16):f.charCo=
+deAt(1)}function =
+h(f){if(f<32)return(f<16?"\\x0":"\\x")+f.toString(16);f=3DString.fromChar=
+Code(f);return f=3D=3D=3D"\\"||f=3D=3D=3D"-"||f=3D=3D=3D"]"||=0A=
+f=3D=3D=3D"^"?"\\"+f:f}function b(f){var =
+b=3Df.substring(1,f.length-1).match(/\\u[\dA-Fa-f]{4}|\\x[\dA-Fa-f]{2}|\\=
+[0-3][0-7]{0,2}|\\[0-7]{1,2}|\\[\S\s]|[^\\]/g),f=3D[],a=3Db[0]=3D=3D=3D"^=
+",c=3D["["];a&&c.push("^");for(var a=3Da?1:0,g=3Db.length;a<g;++a){var =
+k=3Db[a];if(/\\[bdsw]/i.test(k))c.push(k);else{var =
+k=3Dd(k),o;a+2<g&&"-"=3D=3D=3Db[a+1]?(o=3Dd(b[a+2]),a+=3D2):o=3Dk;f.push(=
+[k,o]);o<65||k>122||(o<65||k>90||f.push([Math.max(65,k)|32,Math.min(o,90)=
+|32]),o<97||k>122||f.push([Math.max(97,k)&-33,Math.min(o,122)&-33]))}}f.s=
+ort(function(f,=0A=
+a){return =
+f[0]-a[0]||a[1]-f[1]});b=3D[];g=3D[];for(a=3D0;a<f.length;++a)k=3Df[a],k[=
+0]<=3Dg[1]+1?g[1]=3DMath.max(g[1],k[1]):b.push(g=3Dk);for(a=3D0;a<b.lengt=
+h;++a)k=3Db[a],c.push(h(k[0])),k[1]>k[0]&&(k[1]+1>k[0]&&c.push("-"),c.pus=
+h(h(k[1])));c.push("]");return c.join("")}function e(f){for(var =
+a=3Df.source.match(/\[(?:[^\\\]]|\\[\S\s])*]|\\u[\dA-Fa-f]{4}|\\x[\dA-Fa-=
+f]{2}|\\\d+|\\[^\dux]|\(\?[!:=3D]|[()^]|[^()[\\^]+/g),c=3Da.length,d=3D[]=
+,g=3D0,k=3D0;g<c;++g){var =
+o=3Da[g];o=3D=3D=3D"("?++k:"\\"=3D=3D=3Do.charAt(0)&&(o=3D+o.substring(1)=
+)&&(o<=3Dk?=0A=
+d[o]=3D-1:a[g]=3Dh(o))}for(g=3D1;g<d.length;++g)-1=3D=3D=3Dd[g]&&(d[g]=3D=
+++j);for(k=3Dg=3D0;g<c;++g)o=3Da[g],o=3D=3D=3D"("?(++k,d[k]||(a[g]=3D"(?:=
+")):"\\"=3D=3D=3Do.charAt(0)&&(o=3D+o.substring(1))&&o<=3Dk&&(a[g]=3D"\\"=
++d[o]);for(g=3D0;g<c;++g)"^"=3D=3D=3Da[g]&&"^"!=3D=3Da[g+1]&&(a[g]=3D"");=
+if(f.ignoreCase&&F)for(g=3D0;g<c;++g)o=3Da[g],f=3Do.charAt(0),o.length>=3D=
+2&&f=3D=3D=3D"["?a[g]=3Db(o):f!=3D=3D"\\"&&(a[g]=3Do.replace(/[A-Za-z]/g,=
+function(a){a=3Da.charCodeAt(0);return"["+String.fromCharCode(a&-33,a|32)=
++"]"}));return a.join("")}for(var =
+j=3D0,F=3D!1,l=3D!1,I=3D0,c=3Da.length;I<c;++I){var p=3D=0A=
+a[I];if(p.ignoreCase)l=3D!0;else =
+if(/[a-z]/i.test(p.source.replace(/\\u[\da-f]{4}|\\x[\da-f]{2}|\\[^UXux]/=
+gi,""))){F=3D!0;l=3D!1;break}}for(var =
+i=3D{b:8,t:9,n:10,v:11,f:12,r:13},q=3D[],I=3D0,c=3Da.length;I<c;++I){p=3D=
+a[I];if(p.global||p.multiline)throw =
+Error(""+p);q.push("(?:"+e(p)+")")}return =
+RegExp(q.join("|"),l?"gi":"g")}function m(a,d){function h(a){var =
+c=3Da.nodeType;if(c=3D=3D1){if(!b.test(a.className)){for(c=3Da.firstChild=
+;c;c=3Dc.nextSibling)h(c);c=3Da.nodeName.toLowerCase();if("br"=3D=3D=3Dc|=
+|"li"=3D=3D=3Dc)e[l]=3D"\n",F[l<<1]=3Dj++,=0A=
+F[l++<<1|1]=3Da}}else =
+if(c=3D=3D3||c=3D=3D4)c=3Da.nodeValue,c.length&&(c=3Dd?c.replace(/\r\n?/g=
+,"\n"):c.replace(/[\t\n\r ]+/g," =
+"),e[l]=3Dc,F[l<<1]=3Dj,j+=3Dc.length,F[l++<<1|1]=3Da)}var =
+b=3D/(?:^|\s)nocode(?:\s|$)/,e=3D[],j=3D0,F=3D[],l=3D0;h(a);return{a:e.jo=
+in("").replace(/\n$/,""),d:F}}function =
+n(a,d,h,b){d&&(a=3D{a:d,e:a},h(a),b.push.apply(b,a.g))}function =
+x(a){for(var d=3Dvoid 0,h=3Da.firstChild;h;h=3Dh.nextSibling)var =
+b=3Dh.nodeType,d=3Db=3D=3D=3D1?d?a:h:b=3D=3D=3D3?S.test(h.nodeValue)?a:d:=
+d;return d=3D=3D=3Da?void 0:d}function C(a,d){function h(a){for(var l=3D=0A=
+a.e,j=3D[l,"pln"],c=3D0,p=3Da.a.match(e)||[],m=3D{},q=3D0,f=3Dp.length;q<=
+f;++q){var B=3Dp[q],y=3Dm[B],u=3Dvoid 0,g;if(typeof =
+y=3D=3D=3D"string")g=3D!1;else{var =
+k=3Db[B.charAt(0)];if(k)u=3DB.match(k[1]),y=3Dk[0];else{for(g=3D0;g<i;++g=
+)if(k=3Dd[g],u=3DB.match(k[1])){y=3Dk[0];break}u||(y=3D"pln")}if((g=3Dy.l=
+ength>=3D5&&"lang-"=3D=3D=3Dy.substring(0,5))&&!(u&&typeof =
+u[1]=3D=3D=3D"string"))g=3D!1,y=3D"src";g||(m[B]=3Dy)}k=3Dc;c+=3DB.length=
+;if(g){g=3Du[1];var =
+o=3DB.indexOf(g),H=3Do+g.length;u[2]&&(H=3DB.length-u[2].length,o=3DH-g.l=
+ength);y=3Dy.substring(5);n(l+k,B.substring(0,o),h,=0A=
+j);n(l+k+o,g,A(y,g),j);n(l+k+H,B.substring(H),h,j)}else =
+j.push(l+k,y)}a.g=3Dj}var b=3D{},e;(function(){for(var =
+h=3Da.concat(d),l=3D[],i=3D{},c=3D0,p=3Dh.length;c<p;++c){var =
+m=3Dh[c],q=3Dm[3];if(q)for(var =
+f=3Dq.length;--f>=3D0;)b[q.charAt(f)]=3Dm;m=3Dm[1];q=3D""+m;i.hasOwnPrope=
+rty(q)||(l.push(m),i[q]=3Dr)}l.push(/[\S\s]/);e=3Dj(l)})();var =
+i=3Dd.length;return h}function t(a){var =
+d=3D[],h=3D[];a.tripleQuotedStrings?d.push(["str",/^(?:'''(?:[^'\\]|\\[\S=
+\s]|''?(?=3D[^']))*(?:'''|$)|"""(?:[^"\\]|\\[\S\s]|""?(?=3D[^"]))*(?:"""|=
+$)|'(?:[^'\\]|\\[\S\s])*(?:'|$)|"(?:[^"\\]|\\[\S\s])*(?:"|$))/,=0A=
+r,"'\""]):a.multiLineStrings?d.push(["str",/^(?:'(?:[^'\\]|\\[\S\s])*(?:'=
+|$)|"(?:[^"\\]|\\[\S\s])*(?:"|$)|`(?:[^\\`]|\\[\S\s])*(?:`|$))/,r,"'\"`"]=
+):d.push(["str",/^(?:'(?:[^\n\r'\\]|\\.)*(?:'|$)|"(?:[^\n\r"\\]|\\.)*(?:"=
+|$))/,r,"\"'"]);a.verbatimStrings&&h.push(["str",/^@"(?:[^"]|"")*(?:"|$)/=
+,r]);var =
+b=3Da.hashComments;b&&(a.cStyleComments?(b>1?d.push(["com",/^#(?:##(?:[^#=
+]|#(?!##))*(?:###|$)|.*)/,r,"#"]):d.push(["com",/^#(?:(?:define|e(?:l|nd)=
+if|else|error|ifn?def|include|line|pragma|undef|warning)\b|[^\n\r]*)/,=0A=
+r,"#"]),h.push(["str",/^<(?:(?:(?:\.\.\/)*|\/?)(?:[\w-]+(?:\/[\w-]+)+)?[\=
+w-]+\.h(?:h|pp|\+\+)?|[a-z]\w*)>/,r])):d.push(["com",/^#[^\n\r]*/,r,"#"])=
+);a.cStyleComments&&(h.push(["com",/^\/\/[^\n\r]*/,r]),h.push(["com",/^\/=
+\*[\S\s]*?(?:\*\/|$)/,r]));if(b=3Da.regexLiterals){var =
+e=3D(b=3Db>1?"":"\n\r")?".":"[\\S\\s]";h.push(["lang-regex",RegExp("^(?:^=
+^\\.?|[+-]|[!=3D]=3D?=3D?|\\#|%=3D?|&&?=3D?|\\(|\\*=3D?|[+\\-]=3D|->|\\/=3D=
+?|::?|<<?=3D?|>>?>?=3D?|,|;|\\?|@|\\[|~|{|\\^\\^?=3D?|\\|\\|?=3D?|break|c=
+ase|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\=
+s*("+=0A=
+("/(?=3D[^/*"+b+"])(?:[^/\\x5B\\x5C"+b+"]|\\x5C"+e+"|\\x5B(?:[^\\x5C\\x5D=
+"+b+"]|\\x5C"+e+")*(?:\\x5D|$))+/")+")")])}(b=3Da.types)&&h.push(["typ",b=
+]);b=3D(""+a.keywords).replace(/^ | =
+$/g,"");b.length&&h.push(["kwd",RegExp("^(?:"+b.replace(/[\s,]+/g,"|")+")=
+\\b"),r]);d.push(["pln",/^\s+/,r," =
+\r\n\t\u00a0"]);b=3D"^.[^\\s\\w.$@'\"`/\\\\]*";a.regexLiterals&&(b+=3D"(?=
+!s*/)");h.push(["lit",/^@[$_a-z][\w$@]*/i,r],["typ",/^(?:[@_]?[A-Z]+[a-z]=
+[\w$@]*|\w+_t\b)/,r],["pln",/^[$_a-z][\w$@]*/i,r],["lit",/^(?:0x[\da-f]+|=
+(?:\d(?:_\d+)*\d*(?:\.\d*)?|\.\d\+)(?:e[+-]?\d+)?)[a-z]*/i,=0A=
+r,"0123456789"],["pln",/^\\[\S\s]?/,r],["pun",RegExp(b),r]);return =
+C(d,h)}function z(a,d,h){function b(a){var =
+c=3Da.nodeType;if(c=3D=3D1&&!j.test(a.className))if("br"=3D=3D=3Da.nodeNa=
+me)e(a),a.parentNode&&a.parentNode.removeChild(a);else =
+for(a=3Da.firstChild;a;a=3Da.nextSibling)b(a);else =
+if((c=3D=3D3||c=3D=3D4)&&h){var =
+d=3Da.nodeValue,i=3Dd.match(m);if(i)c=3Dd.substring(0,i.index),a.nodeValu=
+e=3Dc,(d=3Dd.substring(i.index+i[0].length))&&a.parentNode.insertBefore(l=
+.createTextNode(d),a.nextSibling),e(a),c||a.parentNode.removeChild(a)}}=0A=
+function e(a){function b(a,c){var =
+d=3Dc?a.cloneNode(!1):a,f=3Da.parentNode;if(f){var =
+f=3Db(f,1),h=3Da.nextSibling;f.appendChild(d);for(var =
+e=3Dh;e;e=3Dh)h=3De.nextSibling,f.appendChild(e)}return =
+d}for(;!a.nextSibling;)if(a=3Da.parentNode,!a)return;for(var =
+a=3Db(a.nextSibling,0),d;(d=3Da.parentNode)&&d.nodeType=3D=3D=3D1;)a=3Dd;=
+c.push(a)}for(var =
+j=3D/(?:^|\s)nocode(?:\s|$)/,m=3D/\r\n?|\n/,l=3Da.ownerDocument,i=3Dl.cre=
+ateElement("li");a.firstChild;)i.appendChild(a.firstChild);for(var =
+c=3D[i],p=3D0;p<c.length;++p)b(c[p]);d=3D=3D=3D(d|0)&&c[0].setAttribute("=
+value",=0A=
+d);var n=3Dl.createElement("ol");n.className=3D"linenums";for(var =
+d=3DMath.max(0,d-1|0)||0,p=3D0,q=3Dc.length;p<q;++p)i=3Dc[p],i.className=3D=
+"L"+(p+d)%10,i.firstChild||i.appendChild(l.createTextNode("\u00a0")),n.ap=
+pendChild(i);a.appendChild(n)}function i(a,d){for(var =
+h=3Dd.length;--h>=3D0;){var =
+b=3Dd[h];U.hasOwnProperty(b)?V.console&&console.warn("cannot override =
+language handler %s",b):U[b]=3Da}}function =
+A(a,d){if(!a||!U.hasOwnProperty(a))a=3D/^\s*</.test(d)?"default-markup":"=
+default-code";return U[a]}function D(a){var d=3D=0A=
+a.h;try{var =
+h=3Dm(a.c,a.i),b=3Dh.a;a.a=3Db;a.d=3Dh.d;a.e=3D0;A(d,b)(a);var =
+e=3D/\bMSIE\s(\d+)/.exec(navigator.userAgent),e=3De&&+e[1]<=3D8,d=3D/\n/g=
+,i=3Da.a,j=3Di.length,h=3D0,l=3Da.d,n=3Dl.length,b=3D0,c=3Da.g,p=3Dc.leng=
+th,t=3D0;c[p]=3Dj;var =
+q,f;for(f=3Dq=3D0;f<p;)c[f]!=3D=3Dc[f+2]?(c[q++]=3Dc[f++],c[q++]=3Dc[f++]=
+):f+=3D2;p=3Dq;for(f=3Dq=3D0;f<p;){for(var =
+x=3Dc[f],y=3Dc[f+1],u=3Df+2;u+2<=3Dp&&c[u+1]=3D=3D=3Dy;)u+=3D2;c[q++]=3Dx=
+;c[q++]=3Dy;f=3Du}c.length=3Dq;var =
+g=3Da.c,k;if(g)k=3Dg.style.display,g.style.display=3D"none";try{for(;b<n;=
+){var o=3Dl[b+2]||j,H=3Dc[t+2]||j,u=3DMath.min(o,H),E=3Dl[b+=0A=
+1],W;if(E.nodeType!=3D=3D1&&(W=3Di.substring(h,u))){e&&(W=3DW.replace(d,"=
+\r"));E.nodeValue=3DW;var =
+Z=3DE.ownerDocument,s=3DZ.createElement("span");s.className=3Dc[t+1];var =
+z=3DE.parentNode;z.replaceChild(s,E);s.appendChild(E);h<o&&(l[b+1]=3DE=3D=
+Z.createTextNode(i.substring(u,o)),z.insertBefore(E,s.nextSibling))}h=3Du=
+;h>=3Do&&(b+=3D2);h>=3DH&&(t+=3D2)}}finally{if(g)g.style.display=3Dk}}cat=
+ch(v){V.console&&console.log(v&&v.stack||v)}}var =
+V=3Dwindow,G=3D["break,continue,do,else,for,if,return,while"],O=3D[[G,"au=
+to,case,char,const,default,double,enum,extern,float,goto,inline,int,long,=
+register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,=
+void,volatile"],=0A=
+"catch,class,delete,false,import,new,operator,private,protected,public,th=
+is,throw,true,try,typeof"],J=3D[O,"alignof,align_union,asm,axiom,bool,con=
+cept,concept_map,const_cast,constexpr,decltype,delegate,dynamic_cast,expl=
+icit,export,friend,generic,late_check,mutable,namespace,nullptr,property,=
+reinterpret_cast,static_assert,static_cast,template,typeid,typename,using=
+,virtual,where"],K=3D[O,"abstract,assert,boolean,byte,extends,final,final=
+ly,implements,import,instanceof,interface,null,native,package,strictfp,su=
+per,synchronized,throws,transient"],=0A=
+L=3D[K,"as,base,by,checked,decimal,delegate,descending,dynamic,event,fixe=
+d,foreach,from,group,implicit,in,internal,into,is,let,lock,object,out,ove=
+rride,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,=
+select,uint,ulong,unchecked,unsafe,ushort,var,virtual,where"],O=3D[O,"deb=
+ugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN"]=
+,M=3D[G,"and,as,assert,class,def,del,elif,except,exec,finally,from,global=
+,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,Fals=
+e,True,None"],=0A=
+N=3D[G,"alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,=
+module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unles=
+s,until,when,yield,BEGIN,END"],R=3D[G,"as,assert,const,copy,drop,enum,ext=
+ern,fail,false,fn,impl,let,log,loop,match,mod,move,mut,priv,pub,pure,ref,=
+self,static,struct,true,trait,type,unsafe,use"],G=3D[G,"case,done,elif,es=
+ac,eval,fi,function,in,local,set,then,until"],Q=3D/^(DIR|FILE|vector|(de|=
+priority_)?queue|list|stack|(const_)?iterator|(multi)?(set|map)|bitset|u?=
+(int|float)\d*)\b/,=0A=
+S=3D/\S/,T=3Dt({keywords:[J,L,O,"caller,delete,die,do,dump,elsif,eval,exi=
+t,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo=
+,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END",M,N,G],has=
+hComments:!0,cStyleComments:!0,multiLineStrings:!0,regexLiterals:!0}),U=3D=
+{};i(T,["default-code"]);i(C([],[["pln",/^[^<?]+/],["dec",/^<!\w[^>]*(?:>=
+|$)/],["com",/^<\!--[\S\s]*?(?:--\>|$)/],["lang-",/^<\?([\S\s]+?)(?:\?>|$=
+)/],["lang-",/^<%([\S\s]+?)(?:%>|$)/],["pun",/^(?:<[%?]|[%?]>)/],["lang-"=
+,=0A=
+/^<xmp\b[^>]*>([\S\s]+?)<\/xmp\b[^>]*>/i],["lang-js",/^<script\b[^>]*>([\=
+S\s]*?)(<\/script\b[^>]*>)/i],["lang-css",/^<style\b[^>]*>([\S\s]*?)(<\/s=
+tyle\b[^>]*>)/i],["lang-in.tag",/^(<\/?[a-z][^<>]*>)/i]]),["default-marku=
+p","htm","html","mxml","xhtml","xml","xsl"]);i(C([["pln",/^\s+/,r," =
+\t\r\n"],["atv",/^(?:"[^"]*"?|'[^']*'?)/,r,"\"'"]],[["tag",/^^<\/?[a-z](?=
+:[\w-.:]*\w)?|\/?>$/i],["atn",/^(?!style[\s=3D]|on)[a-z](?:[\w:-]*\w)?/i]=
+,["lang-uq.val",/^=3D\s*([^\s"'>]*(?:[^\s"'/>]|\/(?=3D\s)))/],["pun",/^[/=
+<->]+/],=0A=
+["lang-js",/^on\w+\s*=3D\s*"([^"]+)"/i],["lang-js",/^on\w+\s*=3D\s*'([^']=
++)'/i],["lang-js",/^on\w+\s*=3D\s*([^\s"'>]+)/i],["lang-css",/^style\s*=3D=
+\s*"([^"]+)"/i],["lang-css",/^style\s*=3D\s*'([^']+)'/i],["lang-css",/^st=
+yle\s*=3D\s*([^\s"'>]+)/i]]),["in.tag"]);i(C([],[["atv",/^[\S\s]+/]]),["u=
+q.val"]);i(t({keywords:J,hashComments:!0,cStyleComments:!0,types:Q}),["c"=
+,"cc","cpp","cxx","cyc","m"]);i(t({keywords:"null,true,false"}),["json"])=
+;i(t({keywords:L,hashComments:!0,cStyleComments:!0,verbatimStrings:!0,typ=
+es:Q}),=0A=
+["cs"]);i(t({keywords:K,cStyleComments:!0}),["java"]);i(t({keywords:G,has=
+hComments:!0,multiLineStrings:!0}),["bash","bsh","csh","sh"]);i(t({keywor=
+ds:M,hashComments:!0,multiLineStrings:!0,tripleQuotedStrings:!0}),["cv","=
+py","python"]);i(t({keywords:"caller,delete,die,do,dump,elsif,eval,exit,f=
+oreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,re=
+quire,sub,undef,unless,until,use,wantarray,while,BEGIN,END",hashComments:=
+!0,multiLineStrings:!0,regexLiterals:2}),["perl","pl","pm"]);i(t({keyword=
+s:N,=0A=
+hashComments:!0,multiLineStrings:!0,regexLiterals:!0}),["rb","ruby"]);i(t=
+({keywords:O,cStyleComments:!0,regexLiterals:!0}),["javascript","js"]);i(=
+t({keywords:"all,and,by,catch,class,else,extends,false,finally,for,if,in,=
+is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,throw,true,tr=
+y,unless,until,when,while,yes",hashComments:3,cStyleComments:!0,multiline=
+Strings:!0,tripleQuotedStrings:!0,regexLiterals:!0}),["coffee"]);i(t({key=
+words:R,cStyleComments:!0,multilineStrings:!0}),["rc","rs","rust"]);=0A=
+i(C([],[["str",/^[\S\s]+/]]),["regex"]);var =
+X=3DV.PR=3D{createSimpleLexer:C,registerLangHandler:i,sourceDecorator:t,P=
+R_ATTRIB_NAME:"atn",PR_ATTRIB_VALUE:"atv",PR_COMMENT:"com",PR_DECLARATION=
+:"dec",PR_KEYWORD:"kwd",PR_LITERAL:"lit",PR_NOCODE:"nocode",PR_PLAIN:"pln=
+",PR_PUNCTUATION:"pun",PR_SOURCE:"src",PR_STRING:"str",PR_TAG:"tag",PR_TY=
+PE:"typ",prettyPrintOne:function(a,d,e){var =
+b=3Ddocument.createElement("div");b.innerHTML=3D"<pre>"+a+"</pre>";b=3Db.=
+firstChild;e&&z(b,e,!0);D({h:d,j:e,c:b,i:1});return b.innerHTML},=0A=
+prettyPrint:e=3De=3Dfunction(a,d){function e(){for(var =
+b=3DV.PR_SHOULD_USE_CONTINUATION?c.now()+250:Infinity;p<j.length&&c.now()=
+<b;p++){for(var d=3Dj[p],m=3Dk,l=3Dd;l=3Dl.previousSibling;){var =
+n=3Dl.nodeType,s=3D(n=3D=3D=3D7||n=3D=3D=3D8)&&l.nodeValue;if(s?!/^\??pre=
+ttify\b/.test(s):n!=3D=3D3||/\S/.test(l.nodeValue))break;if(s){m=3D{};s.r=
+eplace(/\b(\w+)=3D([\w%+\-.:]+)/g,function(a,b,c){m[b]=3Dc});break}}l=3Dd=
+.className;if((m!=3D=3Dk||f.test(l))&&!w.test(l)){n=3D!1;for(s=3Dd.parent=
+Node;s;s=3Ds.parentNode)if(g.test(s.tagName)&&s.className&&f.test(s.class=
+Name)){n=3D=0A=
+!0;break}if(!n){d.className+=3D" prettyprinted";n=3Dm.lang;if(!n){var =
+n=3Dl.match(q),A;if(!n&&(A=3Dx(d))&&u.test(A.tagName))n=3DA.className.mat=
+ch(q);n&&(n=3Dn[1])}if(y.test(d.tagName))s=3D1;else var =
+s=3Dd.currentStyle,v=3Di.defaultView,s=3D(s=3Ds?s.whiteSpace:v&&v.getComp=
+utedStyle?v.getComputedStyle(d,r).getPropertyValue("white-space"):0)&&"pr=
+e"=3D=3D=3Ds.substring(0,3);v=3Dm.linenums;if(!(v=3Dv=3D=3D=3D"true"||+v)=
+)v=3D(v=3Dl.match(/\blinenums\b(?::(\d+))?/))?v[1]&&v[1].length?+v[1]:!0:=
+!1;v&&z(d,v,s);t=3D{h:n,c:d,j:v,i:s};D(t)}}}p<j.length?=0A=
+P(e,250):"function"=3D=3D=3Dtypeof a&&a()}for(var =
+b=3Dd||document.body,i=3Db.ownerDocument||document,b=3D[b.getElementsByTa=
+gName("pre"),b.getElementsByTagName("code"),b.getElementsByTagName("xmp")=
+],j=3D[],m=3D0;m<b.length;++m)for(var =
+l=3D0,n=3Db[m].length;l<n;++l)j.push(b[m][l]);var =
+b=3Dr,c=3DDate;c.now||(c=3D{now:function(){return+new Date}});var =
+p=3D0,t,q=3D/\blang(?:uage)?-([\w.]+)(?!\S)/,f=3D/\bprettyprint\b/,w=3D/\=
+bprettyprinted\b/,y=3D/pre|xmp/i,u=3D/^code$/i,g=3D/^(?:pre|code|xmp)$/i,=
+k=3D{};e()}};typeof define=3D=3D=3D"function"&&define.amd&&=0A=
+define("google-code-prettify",[],function(){return X})})();return =
+e}();R||P(Q,0)})();}()=0A=
+
+------=_NextPart_000_0000_01CF0D13.B4C1E760--
