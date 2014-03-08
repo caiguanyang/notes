@@ -1,5 +1,8 @@
 Git使用指南
 ------------
+[TOC]
+
+--------------
 ###1. 配置
     git config --global user.name "your name"
     git config --global user.email "test@126.com"
@@ -7,6 +10,7 @@ Git使用指南
     git config --global merge.tool vimdiff 
 >- git config --list   查看配置的变量
 >- git help `verb`     查看帮助
+
 ###2. 克隆仓库
 1）本地建立目录code:
 &emsp;    git init &emsp;在此目录下添加.git文件夹
@@ -31,8 +35,27 @@ Git使用指南
 > - git commit –-amend –m “modify the latest commit”                 
 修改最后一次提交的信息，但是自从上次提交后，中间不能有任何操作；
 
+<!--- 误操作的恢复 --->
+1）取消对某文件的暂存
+&emsp; `git reset HEAD <file>`
+2）撤销对本地文件的修改（慎用，会直接删除本地的修改）
+&emsp; `git checkout -- <file>`
+###4. 打标签
+给某一时间点的文档打上一个标签，便于今后的查看和使用;
+git中的标签分为轻量级标签和含附注的标签
+>- git tag&emsp;列出现有仓库的标签
+>- git tag -l 'v1.4.*'  &emsp; 列出v1.4相关的标签
+>- git tag -a v1.2 -m "附注"  &emsp; 打一个v1.2的标签，带附注
+>- git tag v1.2   &emsp; 打一个轻量级的标签
+>- git show v1.2   &emsp; 查看v1.2标签的描述信息
+
+注：<!---默认情况下git不会将本地的标签推送到远端服务器中的--->，只有通过显示命令才能将标签推送到远端仓库，与别人分享。
+git push origin [tagname]
+git push origin - -tags   &emsp; 将本地所有标签都推送到远端仓库中
+
 -------------------
-###github管理
+###附录
+####github管理
 1. 如何删除Github中的仓库？
     http://www.oschina.net/question/256591_103418
 2. 
