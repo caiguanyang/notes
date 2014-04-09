@@ -1,0 +1,55 @@
+<p><meta http-equiv="content-type" content="text/html; charset=UTF-8"></p><div class="se-section-delimiter"></div>
+
+<h2 id="dom4j解析xml">Dom4j解析XML</h2>
+
+<h3 id="1-基本用法">1. 基本用法</h3>
+
+<p> 参考<a href="http://87029274.iteye.com/blog/1183454">dom4j使用</a>.</p>
+
+<h3 id="2-解析方式">2. 解析方式</h3>
+
+<h4 id="21-dom">2.1 DOM</h4>
+
+<blockquote>
+  <p>DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance(); <br>
+      DocumentBuilder builder = fact.newDocumentBuilder(); <br>
+      Document doc_xml = builder.parse(new File(“test.xml”)); <br>
+      DOMReader reader_d = new DOMReader(<code>new DOMDocumentFactory()</code>); <br>
+      org.dom4j.dom.DOMDocument doc = (DOMDocument) reader_d.read(doc_xml);</p>
+</blockquote>
+
+<h4 id="22-sax">2.2 SAX</h4>
+
+<blockquote>
+  <p>SAXReader reader = new SAXReader(); <br>
+    org.dom4j.Document doc = reader.read(new File(“test.xml”));</p>
+</blockquote>
+
+<p>  SAX解析器不像DOM那样建立一个完整的文档树，而是在读取文档时激活一系列事件，这些事件被推给事件处理器，然后由事件处理器提供对文档内容的访问。那些只需要单遍读取内容的应用程序可以从SAX解析中大大受益。而如果要修改和操作XML，则很少使用SAX。 <br>
+<strong>注意</strong> <br>
+SAXReade r sr = new SAXReader(); <br>
+sr.setDocumentFactory(new DOMDocumentFactory()); <br>
+try { <br>
+DOMDocument doc = (DOMDocument) sr.read(xmlstring);  <br>
+} <br>
+通过SAXReader也可以创建出DOMDocument，从上面的代码我们可以看出创建dom4j文档树跟采用的DocumentFactory有关</p>
+
+<h3 id="3-documentfactory">3. DocumentFactory</h3>
+
+<p>源码中的介绍： <br>
+/*  <br>
+* <code>DocumentFactory</code> is a collection of factory methods to allow <br>
+* easy custom building of DOM4J trees. The default tree that is built uses a <br>
+* doubly linked tree. <br>
+* The tree built allows full XPath expressions from anywhere on the tree. <br>
+*/ <br>
+  当使用的是DOMDocumentFactory时，创建的节点是DOMElement实例，使用默认的DocumentFactory时，则创建的Dom4j节点树节点都是AbstractElement实例。从Dom4j API中知DOMElement是 org.dom4j.tree.AbstractElement的子类，但是当创建SAXReader或者DOMReader不指定DocumentFactory时，不能将Document转换为DOMDocument.</p>
+
+<p>由于采用的DocumentFactory不同，将直接影响XML元素在内存中的存储结构，导致检索节点是性能有所差异，可以参看<a href="http://www.iteye.com/topic/1117606">http://www.iteye.com/topic/1117606</a>做的测试。</p>
+
+<p>Dom4j中支持的DocumentFactory类型有： <br>
+<img src="http://d.pcs.baidu.com/thumbnail/a343b822ffff06f1b2f5b1e62b400853?fid=1796184830-250528-112407723986274&amp;time=1395834431&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-HOh72GJnAQqdk%2bYBwtacFX1Xq5I=&amp;expires=8h&amp;prisign=RK9dhfZlTqV5TuwkO5ihMd5RMl20gNxXUiEpHysoGObDdOsz01yQszraTroqGzzhWrBLCU/QJ7hEXM0pnG7XVmHbh9zGO8SQFyU7wWgSpO7oYkwdXfci8C5VHrJoODzY3jZt2m8Eff6zfFgeX56amqv4j1gayjms5pfy3XbwwwsuVR6yaDg82FxWN2Rc/6zVpuni65KOFcKwg54nfuMzCq35YclbRjxpaxj0NNGWNJYtUuCKorR3NH5uQdH5qPqjb1RB%20f%20SyT2CSsDq5LTecmiY8zBQMRNrCSle4vOI5hAN8HxOtJBtNYshL%20A9fxSRyMy/FL0pZxgRDzo2H0k8KYyPKN93h16w%20io4gRRLnAk=&amp;r=608709378&amp;size=c850_u580&amp;quality=100" alt="类图" title=""></p>
+
+<blockquote>
+  <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
