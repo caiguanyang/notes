@@ -34,10 +34,11 @@ Git使用指南
 > - git commit –a –m     跳过暂存区域，直接将已跟踪且修改过的文件提交
 > - git commit –-amend –m “modify the latest commit”                 
 修改最后一次提交的信息，但是自从上次提交后，中间不能有任何操作；
+> - git rm file &emsp;在索引库中移除文件
 
 <!--- 误操作的恢复 --->
 1）取消对某文件的暂存
-&emsp; `git reset HEAD <file>`
+&emsp; `git reset HEAD <file>` <br>
 2）撤销对本地文件的修改（慎用，会直接删除本地的修改）
 &emsp; `git checkout -- <file>`
 ###4. 打标签
