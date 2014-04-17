@@ -8,9 +8,9 @@ POSIX标准中分两种正则表达式：
 **ERE (extended regular expression):**
 他们支持的符合有所区别：
 
->  .  &emsp;&emsp; Both  &emsp;匹配任何单个字符
-   *  &emsp;&emsp; Both  &emsp;匹配在它之前的任何数目单个字符
-   \  &emsp;&emsp; Both  &emsp;转义字符
+>>  .  &emsp;&emsp; Both  &emsp;匹配任何单个字符
+>>  *  &emsp;&emsp; Both  &emsp;匹配在它之前的任何数目单个字符
+>>   \  &emsp;&emsp; Both  &emsp;转义字符
    ^  &emsp;&emsp; Both  &emsp;从字符串的行首开始匹配
    $  &emsp;&emsp; Both  &emsp;从字符串的行尾开始匹配前面的字符串
    [...]  &emsp;&emsp; Both  &emsp;匹配方括号内的任一字符
@@ -26,13 +26,14 @@ POSIX标准中还提供了一些字符集，排序符号和等价字符集。
 ###1.2 主要命令 
  **grep**  &emsp;查找命令
 >   grep [options ...] pattern-spec [ files ...]
-    *option:*
-    -E  使用扩展正则表达式
-    -F  使用固定字符串进行匹配
-    -i  模式匹配时忽略字母大小写差异
+>    *option:*
+>    -E  使用扩展正则表达式
+>    -F  使用固定字符串进行匹配
+>    -i  模式匹配时忽略字母大小写差异
 
 **sed** 
 >
+
 
 ##2 文本处理常用命令
 ###2.1 cut
@@ -49,6 +50,15 @@ POSIX标准中还提供了一些字符集，排序符号和等价字符集。
 
 ###2.7 printf
 
+
+##3 读文件
+
+**问题：** <br>
+(1)大文件是如何读取的？如4G  
+
+
+##4 其他
+###4.1 /dev/null
 
 
 
