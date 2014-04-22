@@ -26,12 +26,14 @@ DOMDocument doc = (DOMDocument) sr.read(xmlstring);
 
 ###3. DocumentFactory
 源码中的介绍：
-/* 
+```
+/*   
 * <code>DocumentFactory</code> is a collection of factory methods to allow
 * easy custom building of DOM4J trees. The default tree that is built uses a
 * doubly linked tree.
 * The tree built allows full XPath expressions from anywhere on the tree.
 */
+```
 &emsp;&emsp;当使用的是DOMDocumentFactory时，创建的节点是DOMElement实例，使用默认的DocumentFactory时，则创建的Dom4j节点树节点都是AbstractElement实例。从Dom4j API中知DOMElement是 org.dom4j.tree.AbstractElement的子类，但是当创建SAXReader或者DOMReader不指定DocumentFactory时，不能将Document转换为DOMDocument.
 
 由于采用的DocumentFactory不同，将直接影响XML元素在内存中的存储结构，导致检索节点是性能有所差异，可以参看http://www.iteye.com/topic/1117606做的测试。
