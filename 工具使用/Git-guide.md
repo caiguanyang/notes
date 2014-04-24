@@ -67,6 +67,9 @@ git push origin - -tags   &emsp; 将本地所有标签都推送到远端仓库�
 >- git branch --merged &emsp; 查看以合并到当前分支的分支，可以在master上查看
 >- git branch --no-merged &emsp; 与上面的命令相反
 >- git branch -d branchName &emsp; 删除分支，对于已合并的，我们可以删除
+>- git push origin branchName &emsp; 将分支推送到远程仓库中，如果没有则新建分支branchName  
+>- git push origin :branchName &emsp; 删除远程服务器中的分支，慎用
+>  
 
 附：
 git fetch：从远程仓库获得最新版本，但不会merge;
