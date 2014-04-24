@@ -67,7 +67,7 @@ git push origin - -tags   &emsp; 将本地所有标签都推送到远端仓库�
 >- git branch --merged &emsp; 查看以合并到当前分支的分支，可以在master上查看
 >- git branch --no-merged &emsp; 与上面的命令相反
 >- git branch -d branchName &emsp; 删除分支，对于已合并的，我们可以删除
->- git push origin branchName &emsp; 将分支推送到远程仓库中，如果没有则新建分支branchName  
+>- git push origin branchName:远端分支名 &emsp; 将分支推送到远程仓库中，如果没有则新建分支branchName  
 >- git push origin :branchName &emsp; 删除远程服务器中的分支，慎用
 >  
 
@@ -84,6 +84,12 @@ git fetch：从远程仓库获得最新版本，但不会merge;
 
 但是git fetch ，git merge更安全一些  
 合并后记着这些信息仍在本地，你需要将更新上传到你自己的服务器中（git push）
+
+**开发模式**  
+1）获得项目主干克隆到本地；  
+2）创建开发分支（dev）;  
+3）在分支dev上开发，如果子模块开发完成，合并到本地master，然后push到远端；  
+4）如果模块未开发完成，则直接将分支dev更新到远程仓库中，保存，待下次开发使用。
 ###6.日志
 
 
