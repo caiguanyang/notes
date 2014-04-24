@@ -69,11 +69,11 @@ git push origin - -tags   &emsp; 将本地所有标签都推送到远端仓库�
 >- git branch -d branchName &emsp; 删除分支，对于已合并的，我们可以删除
 >- git push origin branchName:远端分支名 &emsp; 将分支推送到远程仓库中，如果没有则新建分支branchName  
 >- git push origin :branchName &emsp; 删除远程服务器中的分支，慎用
->  
+>- git pull origin(远程仓库URL) r_branch:l_branch  &emsp; 将远端仓库中的r_branch分支拉到本地l_branch分支
 
 附：
 git fetch：从远程仓库获得最新版本，但不会merge;
->- git fetch origin master:test
+>- git fetch origin master:test（远端的master分支拷贝到本地分支test中）
 >- git diff test
 >- git merge test
 
@@ -89,7 +89,9 @@ git fetch：从远程仓库获得最新版本，但不会merge;
 1）获得项目主干克隆到本地；  
 2）创建开发分支（dev）;  
 3）在分支dev上开发，如果子模块开发完成，合并到本地master，然后push到远端；  
-4）如果模块未开发完成，则直接将分支dev更新到远程仓库中，保存，待下次开发使用。
+4）如果模块未开发完成，则直接将分支dev更新到远程仓库中，保存，待下次开发使用。  
+5）也可将远程的某个分支拉会本地开发
+
 ###6.日志
 
 
