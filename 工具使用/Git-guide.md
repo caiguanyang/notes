@@ -1,3 +1,4 @@
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 Git使用指南
 ------------
 [TOC]
@@ -38,7 +39,7 @@ Git使用指南
 
 <!--- 误操作的恢复 --->
 1）取消对某文件的暂存
-&emsp; `git reset HEAD <file>`
+&emsp; `git reset HEAD <file>`  
 2）撤销对本地文件的修改（慎用，会直接删除本地的修改）
 &emsp; `git checkout -- <file>`
 
