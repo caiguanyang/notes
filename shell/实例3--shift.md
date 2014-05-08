@@ -18,12 +18,11 @@ shell实例--shift
             result=`expr $result \* $1`;
             shift;
         done
-        return $result;
+        echo "结果为：" $result
+        return 0;
     }
 
-    multiple 1 2 3 4 5 6
-    # 函数的返回状态即为结果
-    echo $?
+    multiple 1 2 3 4 5
 
 ###3. 知识点
 ####3.1 函数
@@ -50,9 +49,8 @@ shell实例--shift
     . multiple.sh
 
     multiple 1 2 3
-    echo $?
 
-    #输出为： 6
+    #结果为： 6
 
 通过`set | grep "multiple"` 我们可以查看已加载的函数
 
