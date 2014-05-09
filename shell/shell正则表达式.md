@@ -53,10 +53,7 @@ POSIX标准中还提供了一些字符集，排序符号和等价字符集。
 
     \(ab\)\(cd\)[def]*\2\1   匹配abcdcdab, abcdeddcdab
 
-
-
-
-
-
-
 参考：http://blog.csdn.net/gexiaobaohelloworld/article/details/9147365  
+
+###3. 说明
+正则表达式POSIX已经将其标准化了，但是不同的工具依旧可以对它做扩展，他们都有自己的实现方式，如Perl，awk。因此我们在了解正则表达式的作用后，根据自己的应用需求，了解具体工具的用法。
