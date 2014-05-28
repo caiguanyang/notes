@@ -213,11 +213,11 @@ addWorker()会调用ThreadFactory创建FJWorkerThread，并启动它。线程启
     }  
 <font color='00999FF' size='3'><b>说明：</b></font>   
 任务获取顺序如下：  
-1.线程首次运行时从pool的任务队列中获取一个任务（FIFO），调用execTask(FJTask)执行。  
-  从*code-2-1* 的代码可知，以后此线程执行任务的过程中可能会导致任务再细分为子任务，添加自身的任务队列中，然后采用LIFO策略（可变）自身线程队列中获取要执行的任务。
+1. 线程首次运行时从pool的任务队列中获取一个任务（FIFO），调用execTask(FJTask)执行。  
+   从*code-2-1* 的代码可知，以后此线程执行任务的过程中可能会导致任务再细分为子任务，添加自身的任务队列中，然后采用LIFO策略（可变）自身线程队列中获取要执行的任务。
 
-2. 任务窃取（FIFO）
-3. 窃取失败时从pool的任务队列获取任务
+2.任务窃取（FIFO）  
+3.窃取失败时从pool的任务队列获取任务
 
 
 ###2. ForkJoinWorkerThread
@@ -267,4 +267,10 @@ addWorker()会调用ThreadFactory创建FJWorkerThread，并启动它。线程启
         }
     }
 
-
+###3. 性能提升策略
+此ForkJoin框架有较好的性能，主要原因有以下几点：  
+1）work-stealling算法的应用；  
+2）Unsafe类的应用：  
+通过提供的非阻塞原子操作，减少了线程调度开销和线程同步代码对并发性能的影响。  
+3）巧妙的位操作：  
+   如FJPool中的crl状态变量，被定义为**volatile long**。64位保存了6个状态信息，且volatile保证了线程间的可见性，减少了多个状态的同步访问操作。
