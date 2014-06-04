@@ -246,7 +246,7 @@ addWorker()会调用ThreadFactory创建FJWorkerThread，并启动它。线程启
 由于此方法的触发点时pool.scan()方法，当窃取到任务的时候才会执行，所以此处是统计窃取任务次数的最佳时刻。
 窃取的任务及分解的子任务执行完成后，stealCount加1.
 
-2）执行任务的过程中，可能会调用fork、join操作，fork操作会将子任务添加到当前线程的任务队列中。从代码中可知，每添加一个子任务，就会调用pool.signalWork()操作，激活那些处于等待状态的线程，或者创建新线程。  
+2）执行任务的过程中，需先调用fork操作提交任务，fork操作会将子任务添加到当前线程的任务队列中。从代码中可知，每添加一个子任务，就会调用pool.signalWork()操作，激活那些处于等待状态的线程，或者创建新线程。  
 **code-2-2**  
 
     /**
@@ -266,11 +266,48 @@ addWorker()会调用ThreadFactory创建FJWorkerThread，并启动它。线程启
                 growQueue();
         }
     }
+3）调用join操作获取任务的执行结果，Thread.join操作的语意是等待调用它的线程终止，而此处的join是由FJTask调用的，相同语意，等待执行此Task的FJworkerThread执行完成；但是有两种情况：  
+a. 当前线程的任务队列的头部即为此任务，则直接执行；  
+b. 队列头如果不是此任务，为了提高效率，我们可以让此线程执行其他任务，而不是阻塞等待结果。直到当前的task完成后返回join操作，再执行此任务中的其他Join操作、  
+
+**code-2-3**
+
+    /**
+     * Primary mechanics for join, get, quietlyJoin.
+     * @return status upon completion
+     */
+    private int doJoin() {
+        Thread t; ForkJoinWorkerThread w; int s; boolean completed;
+        if ((t = Thread.currentThread()) instanceof ForkJoinWorkerThread) {
+            if ((s = status) < 0)
+                return s;
+            // 重要：若此任务在队列头，则直接执行
+            if ((w = (ForkJoinWorkerThread)t).unpushTask(this)) {
+                try {
+                    completed = exec();
+                } catch (Throwable rex) {
+                    return setExceptionalCompletion(rex);
+                }
+                if (completed)
+                    return setCompletion(NORMAL);
+            }
+            return w.joinTask(this);
+        }
+        else
+            return externalAwaitDone();
+    }
+
+由于线程执行任务的过程并非与fork操作顺序一致，我们可以先让后fork的任务先执行join操作；这样就能保证任务队列头的任务始终是先执行的，而不会导致它先去执行其他任务，直到当前任务执行完后再返回。
+**问题：**  
+   还有一些细节未看呢：join时帮助执行其他任务，那么什么时候会被阻塞呢？对开发有什么要注意的呢
 
 ###3. 性能提升策略
 此ForkJoin框架有较好的性能，主要原因有以下几点：  
-1）work-stealling算法的应用；  
-2）Unsafe类的应用：  
+**1）work-stealling算法的应用：**  
+去中心化思想：线程不是从一个集中的地方获取任务的，它首先会从自己的队列中获取任务，减少了线程间数据的传递，自身没任务时还可以从别人的队列中获取任务执行，保持线程处于繁忙当中。  
+**2）Unsafe类的应用：**  
 通过提供的非阻塞原子操作，减少了线程调度开销和线程同步代码对并发性能的影响。  
-3）巧妙的位操作：  
-   如FJPool中的crl状态变量，被定义为**volatile long**。64位保存了6个状态信息，且volatile保证了线程间的可见性，减少了多个状态的同步访问操作。
+**3）巧妙的位操作：**  
+   如FJPool中的crl状态变量，被定义为**volatile long**。64位保存了6个状态信息，且volatile保证了线程间的可见性，减少了多个状态的同步访问操作。  
+**4）Join操作的处理：**  
+   当用户使用join操作时，并非阻塞当前线程的执行，而是让线程先帮忙执行其他任务，直到当前任务完成了再返回执行同任务中的  其他join操作。（<font color=ff0000>编程时也需注意fork和join的顺序，但并非必须，只是可以稍微提高效率而已</font>）
