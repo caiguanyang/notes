@@ -1,7 +1,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
 T：2014-07-22  
- tomato: 2+1+
+ tomato: 2+1+3+
 
 从CountDownLatch学到...
 -----------------------------------
@@ -158,12 +158,44 @@ N个线程互相等待，当都准备好后一块执行（模仿1.2）；
 当这N个线程都执行完后则汇总结果（模仿1.3）;  
 开始下一轮的运算（特有）；  
 **代码**  
+*1. subtask*  
+
+*2. controller*  
 
 
+*3. result*
+    
+    result-1: use cyclicBarrier
+    Mon Jul 21 03:47:24 CST 2014: person-0 arive!
+    Mon Jul 21 03:47:25 CST 2014: person-1 arive!
+    Mon Jul 21 03:47:25 CST 2014: person-2 arive!
+    Mon Jul 21 03:47:25 CST 2014: person-2 > let's go to picnic...
+    Mon Jul 21 03:47:25 CST 2014: person-1 > let's go to picnic...
+    Mon Jul 21 03:47:25 CST 2014: person-0 > let's go to picnic...
+    Mon Jul 21 03:47:25 CST 2014: person-0 > I am waiting them...
+    Mon Jul 21 03:47:26 CST 2014: person-1 > I am waiting them...
+    Mon Jul 21 03:47:26 CST 2014: person-2 > I am waiting them...
+    Mon Jul 21 03:47:26 CST 2014: person-2 > let's go to home...
+    Mon Jul 21 03:47:26 CST 2014: person-1 > let's go to home...
+    Mon Jul 21 03:47:26 CST 2014: person-0 > let's go to home...
+
+    result-2: not use cyclicBarrier
+    Mon Jul 21 03:53:21 CST 2014: person-2 arive!
+    Mon Jul 21 03:53:21 CST 2014: person-2 > let's go to picnic...
+    Mon Jul 21 03:53:22 CST 2014: person-1 arive!
+    Mon Jul 21 03:53:22 CST 2014: person-1 > let's go to picnic...
+    Mon Jul 21 03:53:22 CST 2014: person-2 > I am waiting them...
+    Mon Jul 21 03:53:22 CST 2014: person-2 > let's go to home...
+    Mon Jul 21 03:53:22 CST 2014: person-0 arive!
+    Mon Jul 21 03:53:22 CST 2014: person-0 > let's go to picnic...
+    Mon Jul 21 03:53:23 CST 2014: person-0 > I am waiting them...
+    Mon Jul 21 03:53:23 CST 2014: person-0 > let's go to home...
+    Mon Jul 21 03:53:24 CST 2014: person-1 > I am waiting them...
+    Mon Jul 21 03:53:24 CST 2014: person-1 > let's go to home...
 
 **说明：**  
 1）相比countDownLatch, barrier可以循环使用；例子中使用了同一个barrier控制了两次线程等待；  
-2）1.2中是由主线程控制开始的时间的，但是主线程并不知道每个线程的初始化时间，因此按自己设定的一个时间开始的，就像“赛跑”，一开令枪，大家都开始跑，准备不好是运动员的事情了，执行完自己的任务会花费更长的时间。但是barrier则有点不同，线程之间互相等待，大家都准备好了，咱们再一起走。
+2）1.2中是由主线程控制开始的时间的，但是主线程并不知道每个线程的初始化时间，因此按自己设定的一个时间开始的，就像“赛跑”，一开令枪，大家都开始跑，准备不好是运动员的事情了，执行完自己的任务会花费更长的时间。但是barrier则有点不同，线程之间互相等待，大家都准备好了，咱们再一起走。从结果图中可以看出从集合，聚餐，到回家，大家都是一块行动的（例子只是为了说明barrier可以循环使用，实际的应用场景我还并不清楚呢）。
 
 <font color=ff0000>**问题：**</font>  
 1) CyclicBarrier是否可以替代CountDownLatch?  
@@ -175,12 +207,3 @@ N个线程互相等待，当都准备好后一块执行（模仿1.2）；
 ####2.3 源码实现  
 
 
-###3. Semaphore 
-####3.1 概述
-信号量，是一个线程同步工具，用于在多个线程间传递信号。
-
-####3.2 示例
-
-
-####3.3 源码实现
-参考： http://ifeve.com/semaphore/#more-4831  
