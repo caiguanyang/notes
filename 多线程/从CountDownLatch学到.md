@@ -160,8 +160,69 @@ N个线程互相等待，当都准备好后一块执行（模仿1.2）；
 **代码**  
 *1. subtask*  
 
+    public class SubTask implements Runnable{
+        CyclicBarrier cb;
+        String name;
+        public SubTask(CyclicBarrier cb, int num) {
+            this.name = "person-"+num;
+            this.cb = cb;
+        }
+    
+        public void run() {
+            phrase1_together();
+            phrase2_picnic();
+            phrase3_gohome();
+        }
+        /**
+         * go to the gather place
+         */
+        private void phrase1_together() {
+            try {
+                int time = (int)(Math.random()*1000);
+                Thread.sleep(time);
+                Date date = new Date();
+                System.out.println(date+": "+name+" arive!");
+                cb.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
+        }
+    
+        private void phrase2_picnic() {
+            try {
+                Date date = new Date();
+                System.out.println(date+": "+name+" > let's go to picnic...");
+                int time = (int)(Math.random()*2000);
+                Thread.sleep(time);
+                date = new Date();
+                System.out.println(date+": "+name+" > I am waiting them...");
+                cb.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
+        }
+    
+        private void phrase3_gohome() {
+            Date date = new Date();
+            System.out.println(date+": "+name+" > let's go to home...");
+        }
+    }
 *2. controller*  
 
+    int subtaskNum = 3;
+    CyclicBarrier cb = new CyclicBarrier(subtaskNum);
+    ExecutorService pool = Executors.newFixedThreadPool(subtaskNum);
+    for (int i=0; i<subtaskNum; i++) {
+        SubTask task = new SubTask(cb, i);
+        pool.execute(task);
+    }
+    pool.shutdown();
 
 *3. result*
     

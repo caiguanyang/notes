@@ -1,0 +1,42 @@
+Barrier.java 通过ZooKeeper实现的一个栅栏，用于协调多个进程的执行
+	（多个线程使用Java提供的CountDownLatch，CyclicBarrier即可）
+
+app_1  app_2为模拟的两个测试应用程序；
+两个应用程序初始化barrier，指定相同的zk路径和size大小。
+
+测试时分别运行app_1,app_2
+
+通过barrier协同两个进程，让他们同时开始执行，并且一块离开
+结果如下：
+
+caigy@ubuntu:~/c_distribute/code$ java -cp .:zookeeper-3.4.6.jar:slf4j-api-1.6.1.jar Barrier_app_1
+**Startting ZK:
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+**Finish Startting...
+**Tue Jul 29 11:41:09 CST 2014 app-1: waiting other app...
+**Tue Jul 29 11:41:37 CST 2014 app-1: start working...     // 看这里啊
+**Tue Jul 29 11:41:45 CST 2014 app-1: finish wrok...
+**Tue Jul 29 11:41:45 CST 2014 app-1: end wrok...
+
+caigy@ubuntu:~/c_distribute/code$ java -cp .:zookeeper-3.4.6.jar:slf4j-api-1.6.1.jar Barrier_app_2
+**Startting ZK:
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+**Finish Startting...
+**Tue Jul 29 11:41:37 CST 2014 app-2: waiting other app...
+**Tue Jul 29 11:41:37 CST 2014 app-2: start working...   // 看这里啊
+**Tue Jul 29 11:41:45 CST 2014 app-2: finish wrok...
+**Tue Jul 29 11:41:45 CST 2014 app-2: end wrok...
+
+-------------------------------------
+程序不足之处：
+1）程序中每个实例需传递/barrier节点的子节点名字作为等待的标识，且需要保证其唯一性。
+   应用少时，可以由管理员来指定，但是我们可以做个改进，让ZK来负责保证创建节点的唯一性：
+   create(path, data, acl, CreateMode.PERSISTENT_SEQUENTIAL)
+   调用此方法，ZK会在path后面添加一个唯一的编号，并返回创建后的路径。因此用户只需要维护一个节点的路径前缀即可。
+   但需要在leave()时将此名字传递进来。
+
+2）程序不够健壮，如果删除节点失败的话，那么所有程序都将在那里死等。
