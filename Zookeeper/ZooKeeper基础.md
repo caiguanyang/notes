@@ -1,7 +1,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
 T：2014-07-25  
- tomato: 
+ tomato: 8+4
 
 Zookeeper 基础...
 ----------------------------
@@ -65,6 +65,52 @@ Zookeeper不保证同一时间两个客户端看到的Zookeeper data视图是一
 -------------------------------------
 ###应用相关： 
 Zookeeper通过Watcher来跟创建zk实例的对象交互；
+监听事件可以实现为“链式监听”，即只监听可能与他直接相关的一个节点，来避免羊群效应，使节点多次从等待状态中唤醒，提高性能。
+
+###应用：
+####lock:  
+ 分布式锁：
+    
+    public void lock() {
+        lpath = zk.create("/lock/lock-", CreateMode.EPHEMERAL_SEQUENTIAL);
+        while(true) {
+            children = zk.getChildren("/lock", false);
+            if (lpath.seq is the lowest in children)
+                return; // get lock
+            if (zk.exists("/lock/lock-before(lpath.id)", true))
+                wait();   // 监听第二个小的节点
+        }
+    }
+
+    测试结果：
+    Tue Jul 29 16:41:44 CST 2014 : app-1 initial...
+    lockpath：/lock/clock-0000000005  before:/lock/clock-0000000005
+    Tue Jul 29 16:41:44 CST 2014 : app-1 start working...
+    Tue Jul 29 16:41:50 CST 2014 : app-1 end...    // unlock
+
+    Tue Jul 29 16:41:47 CST 2014 : app-2 initial...
+    lockpath：/lock/clock-0000000006  before:/lock/clock-0000000005
+    lockpath：/lock/clock-0000000006  before:/lock/clock-0000000006
+    Tue Jul 29 16:41:50 CST 2014 : app-2 start working...   // lock
+    Tue Jul 29 16:41:53 CST 2014 : app-2 end...
+
+*说明*  
+    从结果可以看出应用程序app-2在app-1释放锁后，他才获取锁。
+**注意点**  
+1）创建的节点时要设置ephemeral和sequential标识，依据ZKserver维护的自增序列号来实现Fair锁，总是先让序号最小的节点获取锁；  
+2）如果当前节点不能获得锁，则监听紧邻且序号比他小的节点，避免“羊群效应”；  
+
+参考：http://agapple.iteye.com/blog/1184040
+源码：
+
+####两阶段提交
+问题：对官方文档中描述的实现方式没有理解呢
+http://zookeeper.apache.org/doc/current/recipes.html#sc_recipes_Queues
+
+
+####领导者选举
+与分布式锁的实现相似，都是将序号最小的那个节点选为领导者；非领导节点监听紧邻节点的状态信息；
+
 
 ----------------------------
 

@@ -32,11 +32,21 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 **Tue Jul 29 11:41:45 CST 2014 app-2: end wrok...
 
 -------------------------------------
-程序不足之处：
-1）程序中每个实例需传递/barrier节点的子节点名字作为等待的标识，且需要保证其唯一性。
-   应用少时，可以由管理员来指定，但是我们可以做个改进，让ZK来负责保证创建节点的唯一性：
-   create(path, data, acl, CreateMode.PERSISTENT_SEQUENTIAL)
-   调用此方法，ZK会在path后面添加一个唯一的编号，并返回创建后的路径。因此用户只需要维护一个节点的路径前缀即可。
-   但需要在leave()时将此名字传递进来。
+说明：
+1)进程创建的节点为临时节点（EPHEMERAL），这样当进程出现问题与server断开连接时，也能删除与他相关的节点，避免其他进程死等
 
-2）程序不够健壮，如果删除节点失败的话，那么所有程序都将在那里死等。
+2）程序中每个实例需传递/barrier节点的子节点名字作为等待的标识，且需要保证其唯一性。
+   应用少时，可以由管理员来指定，但是我们可以做个改进，让ZK来负责保证创建节点的唯一性：
+   create(path, data, acl, CreateMode.EPHEMERAL_SEQUENTIAL)
+   调用此方法，ZK会在path后面添加一个唯一的编号，并返回创建后的路径。因此用户只需要维护一个节点的路径前缀即可。
+   但需要在leave()时将此名字传递进来。但是当创建失败如果重试又会创建一个新的节点
+
+3）由于所有进程监听的都是/barrier节点，因此只要有进程阻塞在barrier处，其他阻塞的进程都会被临时唤醒，再次判断barrier的状态
+   决定是否继续阻塞，退出阻塞一样。效率不是很高，可以参考ZooKeeper Recipes中的Double Barrier.
+   1）enter: 让所有进程监听/barrier/ready节点，第N个节点创建/barrier/ready节点
+   2）leave: 将/barrier/p-lowest作为ready标识，先删除序列号高的节点，让序号高的节点监听此标识。而ready节点则监听所有序号比它高的节点的状态；
+   这样enter时所有进程都只会从阻塞状态中唤醒一次（打开栅栏的时候），leave的时候则只有序号最低的那个节点会被多次唤醒再阻塞，其他节点也都是被唤醒一次。
+
+http://zookeeper.apache.org/doc/current/recipes.html#sc_recipes_Queues
+
+4）扩展：当然简化版的栏栅只是起到一个拦截的作用，当所有进程都达到后则删除此栅栏。

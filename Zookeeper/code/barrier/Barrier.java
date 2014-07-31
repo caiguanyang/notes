@@ -60,7 +60,7 @@ public class Barrier implements Watcher{
      */
     public boolean enter() throws KeeperException, InterruptedException {
         // create a child node of root
-        zk.create(root+"/"+name, new byte[0], Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        zk.create(root+"/"+name, new byte[0], Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         while (true) {
             synchronized(mutex) {
                 List<String> children = zk.getChildren(root, true);
